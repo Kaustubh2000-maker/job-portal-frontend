@@ -1,0 +1,21 @@
+@use "./veriables.scss" as *;
+
+// font-size: 8 / 10 / 12 / 14 / 16 / 20 / 24 / 32 / 48 / 72 / 100
+// spacing: 4 / 8 / 12 / 16 / 20 / 24 / 32 / 40 / 48 / 64 / 80 / 100
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  color: $gray-1;
+  background-color: $gray-9;
+  font-family: Rubik;
+}
+
+button {
+  cursor: pointer;
+}

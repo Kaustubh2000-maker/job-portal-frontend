@@ -1,0 +1,30 @@
+// font-size: 8 / 10 / 12 / 14 / 16 / 20 / 24 / 32 / 48 / 72 / 100
+// spacing: 4 / 8 / 12 / 16 / 20 / 24 / 32 / 40 / 48 / 64 / 80 / 100
+
+$color-primary: #5c7cfa; // main brant color
+$color-secondary: #748ffc;
+
+$color-tertiary: #bac8ff; // brand light mid
+
+$color-quaternary: #dbe4ff;
+
+$color-white: #edf2ff; // brand lightest , white on blue
+$color-black: #343a40; // brand lightest , white on blue
+
+$gray-1: #343a40; // text color on page
+$gray-2: #495057;
+$gray-3: #868e96;
+$gray-4: #adb5bd;
+$gray-5: #ced4da;
+$gray-6: #dee2e6;
+$gray-7: #e9ecef;
+$gray-8: #f1f3f5; // for page background
+$gray-9: #f8f9fa;
+
+$input-and-card-border: 1px solid $gray-5;
+
+$border-radius-primary: 11px;
+$border-radius-secondary: 9px;
+
+$border-white: 1px solid $color-white;
+$border-black: 1px solid $color-black;

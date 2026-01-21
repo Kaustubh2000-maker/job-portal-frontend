@@ -16,6 +16,15 @@ html {
   font-family: Rubik;
 }
 
-button {
+html::-webkit-scrollbar {
+  display: none;
+}
+button,
+a {
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Toastify__toast {
+  font-size: 1.6rem;
 }

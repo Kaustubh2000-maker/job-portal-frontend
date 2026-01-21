@@ -1,0 +1,47 @@
+@use "./../veriables.scss" as *;
+.jobseeker-navbar {
+  display: flex;
+  width: 100%;
+  padding: 2rem 8rem;
+  justify-content: space-between;
+}
+
+.jsn-logo-div {
+}
+
+.jsn-logo {
+  font-size: 3.2rem;
+  // color: transparent;
+  // background: linear-gradient(to left top, $color-primary, $color-primary-dark);
+  // background-clip: text;
+
+  @include gradient-text;
+}
+
+.jsn-links {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.jsn-nav-link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: $gray-1;
+  transition: all 0.2s;
+}
+
+.jsn-nav-link.active {
+  color: $color-primary;
+}
+
+.jsn-logout-btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  background-color: transparent;
+  color: $gray-1;
+}

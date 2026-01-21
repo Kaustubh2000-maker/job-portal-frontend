@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginService, signupService } from "../../services/auth.service";
+import { toast } from "react-toastify";
+import { useAuth } from "../../auth/useAuth";
 
 type AuthMode = "LOGIN" | "SIGNUP";
 type SignupRole = "COMPANY" | "JOBSEEKER";
@@ -7,6 +10,10 @@ type SignupRole = "COMPANY" | "JOBSEEKER";
 import loginImg from "./../../assets/login/login-bg.webp";
 
 export default function Login() {
+  const { setUser } = useAuth();
+
+  const navigate = useNavigate();
+
   const [mode, setMode] = useState<AuthMode>("LOGIN");
   const [signupRole, setSignupRole] = useState<SignupRole>("JOBSEEKER");
   const [loading, setLoading] = useState(false);
@@ -34,10 +41,19 @@ export default function Login() {
         password: loginData.password,
       });
 
-      console.log("LOGIN SUCCESS", response);
-      // later → set auth context + redirect
+      const user = response.data.user;
+
+      // ✅ SAVE USER IN CONTEXT
+      setUser(user);
+
+      toast.success("Login successful");
+
+      // navigate based on role (already discussed)
+      if (user.role === "JOBSEEKER") navigate("/jobseeker", { replace: true });
+      if (user.role === "COMPANY") navigate("/company", { replace: true });
+      if (user.role === "ADMIN") navigate("/admin", { replace: true });
     } catch (error: any) {
-      console.error("LOGIN ERROR", error);
+      toast.error(error?.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -54,9 +70,24 @@ export default function Login() {
       });
 
       console.log("SIGNUP SUCCESS", response);
+      toast.success("Sign In Successful");
+
+      // 1. Save user in AuthContext
+      setUser(response.data.user);
+
+      // 2. Redirect to role entry
+      if (response.data.user.role === "JOBSEEKER") {
+        navigate("/jobseeker", { replace: true });
+      }
+
+      if (response.data.user.role === "COMPANY") {
+        navigate("/company", { replace: true });
+      }
+
       // later → auto login or switch to login
     } catch (error: any) {
       console.error("SIGNUP ERROR", error);
+      toast.error(error?.response.data.message);
     } finally {
       setLoading(false);
     }
@@ -70,7 +101,7 @@ export default function Login() {
 
       <div className="login-from">
         <h2 className="login-from-heading">
-          {mode === "LOGIN" ? "Login" : "Sign Up"}
+          {mode === "LOGIN" ? "Login" : "Sign Up"} to JobSearch
         </h2>
 
         {/* LOGIN FORM */}
@@ -183,7 +214,7 @@ export default function Login() {
               <label className="login-form-label">Password</label>
               <input
                 className="login-form-input"
-                type="password"
+                type="text"
                 value={signupData.password}
                 onChange={(e) =>
                   setSignupData({ ...signupData, password: e.target.value })
@@ -195,7 +226,7 @@ export default function Login() {
               <label className="login-form-label">Confirm Password</label>
               <input
                 className="login-form-input"
-                type="password"
+                type="text"
                 value={signupData.passwordConfirm}
                 onChange={(e) =>
                   setSignupData({

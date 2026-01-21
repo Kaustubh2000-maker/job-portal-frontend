@@ -8,6 +8,8 @@ $color-tertiary: #bac8ff; // brand light mid
 
 $color-quaternary: #dbe4ff;
 
+$color-primary-dark: #364fc7;
+
 $color-white: #edf2ff; // brand lightest , white on blue
 $color-black: #343a40; // brand lightest , white on blue
 
@@ -21,6 +23,8 @@ $gray-7: #e9ecef;
 $gray-8: #f1f3f5; // for page background
 $gray-9: #f8f9fa;
 
+$del-block-red: #ff2d3d;
+
 $input-and-card-border: 1px solid $gray-5;
 
 $border-radius-primary: 11px;
@@ -28,3 +32,12 @@ $border-radius-secondary: 9px;
 
 $border-white: 1px solid $color-white;
 $border-black: 1px solid $color-black;
+
+$text-liner-gradient: 2;
+
+@mixin gradient-text() {
+  color: transparent;
+  background: linear-gradient(to left top, $color-primary, $color-primary-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+}

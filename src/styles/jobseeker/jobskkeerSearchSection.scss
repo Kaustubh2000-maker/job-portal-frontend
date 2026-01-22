@@ -1,0 +1,58 @@
+@use "./../veriables.scss" as *;
+
+.js-search-container {
+  width: 100%;
+  padding: 8rem;
+
+  @include gradient-bg;
+  //   background: linear-gradient(to left, $color-primary, $color-primary-dark);
+  margin-bottom: 10rem;
+}
+
+.js-search-heading {
+  font-size: 4rem;
+  margin-bottom: 3.2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  color: $color-white;
+  text-shadow: $text-shadow-white;
+}
+
+.js-search-sub-text {
+  font-size: 1.8rem;
+  margin-bottom: 4.4rem;
+  text-align: center;
+  color: $color-white;
+  text-transform: capitalize;
+}
+
+.js-search-div {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 3.2rem;
+}
+
+.js-search-imput {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  width: 40rem;
+
+  border-radius: 11px 0px 0px 11px;
+  border: none;
+}
+
+.js-search-imput:focus {
+  outline: none;
+}
+
+.js-search-button {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border-radius: 0px 11px 11px 0px;
+  border: none;
+
+  background-color: $color-primary-dark;
+  color: $color-white;
+  font-weight: 700;
+}

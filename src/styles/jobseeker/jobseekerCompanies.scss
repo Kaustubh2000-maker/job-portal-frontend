@@ -1,0 +1,74 @@
+@use "./../veriables.scss" as *;
+
+.js-c-page {
+  background-color: $gray-7;
+  padding: 2rem;
+}
+
+.js-c-container {
+  width: 110rem;
+  margin: 0 auto;
+  background-color: $gray-9;
+  padding: 2rem 4rem;
+  height: 70rem;
+  border-radius: $border-radius-primary;
+}
+
+.js-c-title {
+  font-size: 4.4rem;
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.js-c-loading {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.js-c-empty {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.js-c-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.js-c-card {
+  border-radius: $border-radius-primary;
+  border: $border-gray;
+  padding: 2rem;
+  box-shadow: $box-shadow-lined-border;
+  transition: all 0.3s;
+}
+
+.js-c-card:hover {
+  transform: scale(1.02);
+  box-shadow: $box-shadow-lined-border-hover;
+}
+
+.js-c-card-name {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.js-c-card-text {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.js-c-card-website {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: $color-primary;
+  text-decoration: none;
+}
+
+.js-c-card-website:hover {
+  text-decoration: underline;
+}

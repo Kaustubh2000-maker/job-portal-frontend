@@ -2,20 +2,22 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { useAuth } from "../../auth/useAuth";
 
 export default function JobseekerEntry() {
   const navigate = useNavigate();
+  const { setJobSeeker } = useAuth();
 
   useEffect(() => {
     const checkJobseekerProfile = async () => {
       try {
-        // 🔍 Check if jobseeker profile exists
-        await api.get("/jobseekers/me");
+        const res = await api.get("/jobseekers/me");
 
-        // ✅ Profile exists → go to dashboard
+        // ✅ backend sends `jobseeker` (lowercase)
+        setJobSeeker(res.data.data.jobseeker);
+
         navigate("/jobseeker/dashboard", { replace: true });
       } catch (error: any) {
-        // ❌ Profile not found → onboarding required
         if (error?.response?.status === 404) {
           navigate("/jobseeker/onboarding", { replace: true });
         } else {
@@ -25,8 +27,7 @@ export default function JobseekerEntry() {
     };
 
     checkJobseekerProfile();
-  }, [navigate]);
+  }, [navigate, setJobSeeker]);
 
-  // Simple loading state (no UI yet)
   return <div>Loading...</div>;
 }

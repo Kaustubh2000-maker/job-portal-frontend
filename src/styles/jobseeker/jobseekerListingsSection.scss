@@ -1,0 +1,52 @@
+@use "./../veriables.scss" as *;
+
+.js-listings-container {
+}
+
+.js-listings-heading {
+  font-size: 3.6rem;
+  text-align: center;
+  margin-bottom: 4.4rem;
+}
+
+.js-listings-card-grid {
+  max-width: 110rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin-bottom: 10rem;
+}
+
+.js-listings-job-card {
+  width: 100%;
+  padding: 4rem 3rem;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-primary;
+}
+
+.js-listings-job-card-title {
+  font-size: 2.4rem;
+  @include gradient-text;
+  margin-bottom: 1.6rem;
+}
+
+.js-listings-job-card-Locaion {
+  font-size: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.js-listings-job-card-describtion {
+  font-size: 1.4rem;
+  margin-bottom: 3.2rem;
+}
+
+.js-listings-job-card-button {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  @include gradient-bg;
+  color: $color-white;
+  font-weight: 700;
+  border: $border-white;
+  border-radius: $border-radius-primary;
+}

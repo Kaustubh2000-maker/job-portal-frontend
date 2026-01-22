@@ -122,7 +122,7 @@ export default function Login() {
               <label className="login-form-label">Password</label>
               <input
                 className="login-form-input"
-                type="password"
+                type="text"
                 value={loginData.password}
                 onChange={(e) =>
                   setLoginData({ ...loginData, password: e.target.value })

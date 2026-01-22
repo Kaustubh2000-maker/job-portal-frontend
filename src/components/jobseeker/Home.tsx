@@ -1,3 +1,10 @@
+import SearchSection from "./SearchSecion";
+import ListingsSection from "./ListingsSections";
 export default function Home() {
-  return <>home</>;
+  return (
+    <>
+      <SearchSection />
+      <ListingsSection />
+    </>
+  );
 }

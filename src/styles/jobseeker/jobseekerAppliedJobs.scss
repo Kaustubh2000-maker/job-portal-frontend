@@ -1,0 +1,71 @@
+@use "./../veriables.scss" as *;
+
+.js-aj-page {
+  background-color: $gray-7;
+  padding: 2rem;
+}
+.js-aj-container {
+  width: 110rem;
+  margin: 0 auto;
+  background-color: $gray-9;
+  padding: 2rem 4rem;
+  height: 70rem;
+  border-radius: $border-radius-primary;
+}
+
+.js-aj-title {
+  font-size: 4.4rem;
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.js-aj-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.js-aj-card {
+  border-radius: $border-radius-primary;
+  border: $border-gray;
+  padding: 2rem;
+  box-shadow: $box-shadow-lined-border;
+  transition: all 0.3s;
+}
+
+.js-aj-card:hover {
+  transform: scale(1.02);
+  box-shadow: $box-shadow-lined-border;
+}
+
+.js-aj-card-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.js-aj-card-location {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.js-aj-card-status {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.js-aj-card-status--pending {
+  color: $pending-warning-orange;
+}
+
+.js-aj-card-status--accepted {
+  color: $active-unblock-accepted-green;
+}
+
+.js-aj-card-status--rejected {
+  color: $del-block-reject-red;
+}
+
+.js-aj-card-date {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}

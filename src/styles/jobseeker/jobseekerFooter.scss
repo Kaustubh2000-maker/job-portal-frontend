@@ -1,0 +1,26 @@
+@use "./../veriables.scss" as *;
+
+.footer {
+  background-color: $gray-1;
+  padding: 2.4rem 1.6rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 4.4rem;
+  margin-bottom: 3.2rem;
+  flex-wrap: wrap;
+}
+
+.footer-links span {
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: default;
+}
+
+.footer-copy {
+  color: #cfcfcf;
+  font-size: 1.4rem;
+}

@@ -27,6 +27,9 @@ export default function JobseekerNavbar() {
         <NavLink to="/jobseeker/dashboard/applied" className="jsn-nav-link">
           Applied Jobs
         </NavLink>
+        <NavLink to="/jobseeker/dashboard/profile" className="jsn-nav-link">
+          Profile
+        </NavLink>
 
         <button
           className="jsn-logout-btn"

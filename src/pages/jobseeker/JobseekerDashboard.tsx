@@ -6,6 +6,7 @@ import Home from "../../components/jobseeker/Home";
 import Jobs from "../../components/jobseeker/Jobs";
 import Companies from "../../components/jobseeker/Companies";
 import AppliedJobs from "../../components/jobseeker/AppliedJobs";
+import Footer from "../../components/jobseeker/Footer";
 
 export default function JobseekerDashboard() {
   return (
@@ -27,7 +28,7 @@ export default function JobseekerDashboard() {
       </main>
 
       {/* FOOTER */}
-      <footer className="jobseeker-footer">© Job Portal</footer>
+      <Footer></Footer>
     </div>
   );
 }

@@ -23,7 +23,9 @@ $gray-7: #e9ecef;
 $gray-8: #f1f3f5; // for page background
 $gray-9: #f8f9fa;
 
-$del-block-red: #ff2d3d;
+$del-block-reject-red: #ff2d3d;
+$active-unblock-accepted-green: #23ac23;
+$pending-warning-orange: rgb(227, 148, 0);
 
 $input-and-card-border: 1px solid $gray-5;
 
@@ -32,8 +34,12 @@ $border-radius-secondary: 9px;
 
 $border-white: 1px solid $color-white;
 $border-black: 1px solid $color-black;
+$border-gray: 1px solid $gray-5;
 
 $text-liner-gradient: 2;
+
+$box-shadow-lined-border: 0px 0px 3px rgba(0, 0, 0, 0.12);
+$box-shadow-lined-border-hover: 0px 3px 3px rgba(0, 0, 0, 0.12);
 
 @mixin gradient-text() {
   color: transparent;
@@ -41,3 +47,9 @@ $text-liner-gradient: 2;
   background-clip: text;
   -webkit-background-clip: text;
 }
+
+@mixin gradient-bg() {
+  background: linear-gradient(to left top, $color-primary, $color-primary-dark);
+}
+
+$text-shadow-white: 1px 1px 1px $color-white;

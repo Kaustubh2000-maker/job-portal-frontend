@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import JobseekerRoutes from "./routes/JobseekerRoutes";
 
+import CompanyRoutes from "./routes/CompanyRoutes";
+
 // pages
 // import JobseekerEntry from "./pages/jobseeker/JobseekerEntry";
 
@@ -34,15 +36,15 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/company/*"
+            element={
+              <ProtectedRoute allowedRole="COMPANY">
+                <CompanyRoutes />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-        {/* <Route
-          path="/company/*"
-          element={
-            <ProtectedRoute allowedRole="COMPANY">
-              <CompanyRoutes />
-            </ProtectedRoute>
-          }
-        /> */}
 
         <ToastContainer
           position="top-right"

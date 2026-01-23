@@ -1,11 +1,9 @@
 import axios from "axios";
 
 // ✅ Base URL (change once, app-wide)
-const API_BASE_URL = "http://localhost:3000/api/v1/"; // example
-
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  withCredentials: true, // important if backend uses cookies
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  withCredentials: true, // ✅ IMPORTANT (cookies / auth)
 });
 
 // ✅ Attach token automatically for every request

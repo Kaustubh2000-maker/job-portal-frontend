@@ -52,4 +52,8 @@ $box-shadow-lined-border-hover: 0px 3px 3px rgba(0, 0, 0, 0.12);
   background: linear-gradient(to left top, $color-primary, $color-primary-dark);
 }
 
+@mixin gradient-bg-light() {
+  background: linear-gradient(to left top, $color-tertiary, $color-primary);
+}
+
 $text-shadow-white: 1px 1px 1px $color-white;

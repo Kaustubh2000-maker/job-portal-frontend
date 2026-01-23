@@ -1,51 +1,3 @@
-// import { createContext } from "react";
-
-// /* =======================
-//    Roles
-// ======================= */
-// export type Role = "JOBSEEKER" | "COMPANY" | "ADMIN";
-
-// /* =======================
-//    User (Auth)
-// ======================= */
-// export interface User {
-//   _id: string;
-//   name: string;
-//   email: string;
-//   role: Role;
-// }
-
-// /* =======================
-//    JobSeeker Profile
-// ======================= */
-// export interface JobSeeker {
-//   _id: string;
-//   user: string;
-//   mobile?: string;
-//   skills?: string[];
-//   // add more fields later if needed
-// }
-
-// /* =======================
-//    Auth Context Type
-// ======================= */
-// export interface AuthContextType {
-//   user: User | null;
-//   jobSeeker: JobSeeker | null;
-
-//   isAuthenticated: boolean;
-
-//   setUser: (user: User) => void;
-//   setJobSeeker: (jobSeeker: JobSeeker) => void;
-
-//   logout: () => void;
-// }
-
-// /* =======================
-//    Context
-// ======================= */
-// export const AuthContext = createContext<AuthContextType | null>(null);
-
 import { createContext } from "react";
 
 /* =======================
@@ -60,6 +12,7 @@ export interface User {
   _id: string;
   name: string;
   email: string;
+  mobile: string;
   role: Role;
 }
 

@@ -18,6 +18,7 @@ interface CreateCompanyPayload {
   name: string;
   industry: string;
   website: string;
+  description: string;
   location: string;
   createdBy: string;
 }

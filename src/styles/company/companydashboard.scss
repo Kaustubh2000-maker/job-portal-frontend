@@ -1,0 +1,389 @@
+@use "./../veriables.scss" as *;
+
+.company-dashboard {
+  background-color: $gray-7;
+  padding: 4rem;
+  min-height: 100vh;
+}
+
+.company-container {
+  width: 120rem;
+  background-color: $gray-9;
+  margin: 0 auto;
+
+  padding: 4rem;
+  border-radius: $border-radius-primary;
+
+  min-height: 60rem;
+}
+.company-dashboard-header {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+
+  @include gradient-bg;
+  border-radius: $border-radius-primary;
+
+  margin-bottom: 4rem;
+}
+
+.company-dashboard-title {
+  font-size: 4.4rem;
+  text-transform: capitalize;
+  color: $color-white;
+}
+
+.company-dashboard-meta {
+  font-size: 1.6rem;
+}
+
+.company-dashboard-location {
+  margin-right: 3rem;
+  color: $color-white;
+}
+.company-dashboard-website {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: $color-white;
+}
+.js-company-dash-logout-btn {
+  background-color: transparent;
+  color: $color-white;
+  border: none;
+
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  margin-left: 2rem;
+  font-weight: 500;
+}
+
+.company-dashboard-sec-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8rem;
+  gap: 2rem;
+  margin-bottom: 6.4rem;
+}
+.company-dashboard-active-btn {
+  width: 100%;
+  background-color: $gray-9;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border: $border-black;
+  border-radius: $border-radius-primary;
+}
+
+.company-dashboard-active-btn.active {
+  border: $border-white;
+  color: $color-white;
+  background-color: $color-primary;
+}
+////////////////////
+///
+.company-dash-j-create {
+  margin-bottom: 4rem;
+}
+
+.company-dash-j-grid {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.company-dash-j-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.company-dash-j-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.company-dash-j-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.company-dash-j-label {
+  font-size: 1.6rem;
+}
+
+.company-dash-j-input,
+.company-dash-j-textarea {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: $border-radius-secondary;
+  border: $border-black;
+}
+
+.company-dash-j-textarea {
+  min-height: 12rem;
+  resize: vertical;
+  margin-bottom: 2rem;
+}
+
+.company-dash-j-input:focus,
+.company-dash-j-textarea:focus {
+  outline: none;
+}
+
+.company-dash-j-submit-btn {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.8rem;
+  padding: 1rem 2.4rem;
+  background-color: $color-primary;
+  color: $color-white;
+  border: $border-white;
+  border-radius: $border-radius-primary;
+  cursor: pointer;
+}
+
+.company-dash-j-card {
+  padding: 2rem;
+  border: $border-black;
+  border-radius: $border-radius-primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: $gray-9;
+}
+
+.company-dash-j-card-info {
+  font-size: 1.6rem;
+}
+
+.company-dash-j-card-actions {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.company-dash-j-card-actions button {
+  padding: 0.6rem 1.6rem;
+  border-radius: $border-radius-secondary;
+  border: $border-black;
+}
+/////////////////////////////////////////////////////////////
+.company-dash-a-heading {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.company-dash-a-select {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  margin-bottom: 2.4rem;
+  border-radius: $border-radius-secondary;
+  border: $border-black;
+}
+.company-dash-select-status {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.company-dash-a-card {
+  padding: 2.4rem;
+  border: $border-black;
+  border-radius: $border-radius-primary;
+  background-color: $gray-9;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 2.4rem;
+}
+
+.company-dash-a-info {
+  font-size: 1.6rem;
+  flex: 1;
+}
+
+.company-dash-a-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.company-dash-a-name {
+  font-size: 2rem;
+}
+
+.company-dash-a-status {
+  padding: 0.4rem 1.2rem;
+  border-radius: $border-radius-secondary;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.company-dash-a-status.pending {
+  background-color: $gray-6;
+}
+
+.company-dash-a-status.approved {
+  background-color: $active-unblock-accepted-green;
+  color: $color-white;
+}
+
+.company-dash-a-status.rejected {
+  background-color: $del-block-reject-red;
+  color: $color-white;
+}
+
+.company-dash-a-email,
+.company-dash-a-mobile {
+  margin-bottom: 0.6rem;
+}
+
+.company-dash-a-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.company-dash-a-skill-chip {
+  padding: 0.4rem 1.2rem;
+  background-color: $gray-7;
+  border-radius: $border-radius-secondary;
+  font-size: 1.4rem;
+}
+
+.company-dash-a-exp,
+.company-dash-a-edu {
+  margin-top: 1.2rem;
+}
+
+.company-dash-a-resume {
+  display: inline-block;
+  margin-top: 1.6rem;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.company-dash-a-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.company-dash-a-approve {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  background-color: $active-unblock-accepted-green;
+  color: $color-white;
+  border: $border-white;
+  border-radius: $border-radius-secondary;
+}
+
+.company-dash-a-reject {
+  font-size: 1.6rem;
+
+  padding: 0.8rem 1.6rem;
+  background-color: $del-block-reject-red;
+  color: $color-white;
+  border: $border-white;
+  border-radius: $border-radius-secondary;
+}
+
+// //////////////////
+
+.company-dash-users {
+  margin-top: 2rem;
+}
+
+.company-dash-section-title {
+  font-size: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.company-dash-users-empty {
+  font-size: 1.6rem;
+  color: $gray-6;
+}
+
+/* =========================
+   USER CARD
+========================= */
+
+.company-dash-user-card {
+  padding: 2.4rem;
+  border: $border-black;
+  border-radius: $border-radius-primary;
+  background-color: $gray-9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.company-dash-user-info {
+  font-size: 1.6rem;
+}
+
+.company-dash-user-name {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.company-dash-user-email,
+.company-dash-user-mobile {
+  margin-bottom: 0.4rem;
+}
+
+.company-dash-user-status {
+  margin-top: 0.8rem;
+  font-weight: 600;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.company-dash-user-actions {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.company-dash-user-approve-btn {
+  padding: 0.6rem 1.6rem;
+  background-color: $active-unblock-accepted-green;
+  color: $color-white;
+  border: $border-white;
+  border-radius: $border-radius-secondary;
+  font-size: 1.6rem;
+}
+
+.company-dash-user-reject-btn {
+  padding: 0.6rem 1.6rem;
+  background-color: $del-block-reject-red;
+  color: $color-white;
+  border: $border-white;
+  border-radius: $border-radius-secondary;
+  font-size: 1.6rem;
+}
+
+/* =========================
+   STATUS COLOR (OPTIONAL)
+========================= */
+
+.company-dash-user-status {
+  &::before {
+    content: "● ";
+  }
+
+  &[data-status="APPROVED"] {
+    color: $active-unblock-accepted-green;
+  }
+
+  &[data-status="REJECTED"] {
+    color: $del-block-reject-red;
+  }
+
+  &[data-status="PENDING"] {
+    color: $gray-6;
+  }
+}

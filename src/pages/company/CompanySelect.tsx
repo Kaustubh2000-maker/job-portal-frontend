@@ -1,9 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 import { companiesService } from "../../services/companies.service";
 import { companyUserService } from "../../services/companyuser.service";
 import { AuthContext } from "../../auth/AuthContext";
 import { toast } from "react-toastify";
+import { useAuth } from "../../auth/useAuth";
 
 interface Company {
   _id: string;
@@ -11,27 +13,69 @@ interface Company {
   location: string;
 }
 
+type ViewState = "LOADING" | "WAITING" | "SELECT";
+
 export default function CompanySelect() {
   const navigate = useNavigate();
   const auth = useContext(AuthContext)!;
   const userId = auth.user!._id;
+  const { logout } = useAuth();
 
   const [companies, setCompanies] = useState<Company[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [appliedCompanyId, setAppliedCompanyId] = useState<string | null>(null);
+  const [view, setView] = useState<ViewState>("LOADING");
+  const [loadingCompanies, setLoadingCompanies] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchCompanies();
+    checkCompanyUser();
   }, []);
+
+  const checkCompanyUser = async () => {
+    try {
+      const res = await api.get("/company-users/check");
+
+      if (!res.data.exists) {
+        setView("SELECT");
+        fetchCompanies();
+        return;
+      }
+
+      const { status } = res.data.data;
+      console.log(status);
+
+      if (status === "APPROVED") {
+        navigate("/company/dashboard", { replace: true });
+        return;
+      }
+
+      if (status === "PENDING") {
+        setMessage("Your request is pending approval.");
+        setView("WAITING");
+        return;
+      }
+
+      if (status === "REJECTED") {
+        setMessage("Your request was rejected. You can apply again.");
+        setView("SELECT");
+        fetchCompanies();
+        return;
+      }
+    } catch {
+      toast.error("Failed to verify company status");
+      setView("SELECT");
+      fetchCompanies();
+    }
+  };
 
   const fetchCompanies = async () => {
     try {
+      setLoadingCompanies(true);
       const res = await companiesService.getAllCompanies();
       setCompanies(res.data.companies || []);
     } catch {
       toast.error("Failed to load companies");
     } finally {
-      setLoading(false);
+      setLoadingCompanies(false);
     }
   };
 
@@ -42,53 +86,77 @@ export default function CompanySelect() {
         company: companyId,
       });
 
-      setAppliedCompanyId(companyId);
       toast.success("Request sent. Waiting for approval.");
+      setView("WAITING");
+      setMessage("Your request has been sent. Please wait for approval.");
     } catch (error: any) {
       toast.error(error?.message || "Failed to apply");
     }
   };
 
-  if (loading) return <div>Loading companies...</div>;
+  if (view === "LOADING") {
+    return <div>Checking company status...</div>;
+  }
 
-  /* =========================
-     WAITING STATE
-  ========================= */
-  if (appliedCompanyId) {
+  if (view === "WAITING") {
     return (
-      <div className="js-company-select js-company-select-waiting">
+      <div className="js-company-select-div js-company-select-waiting">
+        <button
+          className="js-company-select-logout-btn"
+          onClick={() => {
+            logout();
+            navigate("/", { replace: true });
+          }}
+        >
+          Logout
+        </button>
+
         <h2 className="js-company-select-title">Request Submitted</h2>
         <p className="js-company-select-pending">
-          Your request has been sent.
-          <br />
-          Please wait for company approval.
+          {message || "Please wait for company approval."}
         </p>
       </div>
     );
   }
 
-  /* =========================
-     SELECT COMPANY
-  ========================= */
   return (
-    <div className="js-company-select">
+    <div className="js-company-select-div">
+      <button
+        className="js-company-select-logout-btn"
+        onClick={() => {
+          logout();
+          navigate("/", { replace: true });
+        }}
+      >
+        Logout
+      </button>
       <h2 className="js-company-select-title">Select Company</h2>
 
-      <div className="js-company-select-list">
-        {companies.map((company) => (
-          <div key={company._id} className="js-company-select-card">
-            <h3>{company.name}</h3>
-            <p>{company.location}</p>
+      {message && <p className="js-company-select-info">{message}</p>}
 
-            <button
-              className="js-company-select-apply-btn"
-              onClick={() => applyToCompany(company._id)}
-            >
-              Apply
-            </button>
-          </div>
-        ))}
-      </div>
+      {loadingCompanies ? (
+        <p>Loading companies...</p>
+      ) : (
+        <div className="js-company-select-list">
+          {companies.map((company) => (
+            <div key={company._id} className="js-company-select-card">
+              <div>
+                <h3 className="js-company-select-card-name">{company.name}</h3>
+                <p className="js-company-select-card-locaion">
+                  {company.location}
+                </p>
+              </div>
+
+              <button
+                className="js-company-select-apply-btn"
+                onClick={() => applyToCompany(company._id)}
+              >
+                Apply
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
 
       <button
         className="js-company-create-btn"

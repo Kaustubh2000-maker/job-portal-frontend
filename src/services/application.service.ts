@@ -3,6 +3,8 @@ import api from "./api";
 export const applicationService = {
   applyJob,
   getJobSeekerAppliedJobs,
+  getApplicationsByJob,
+  updateApplicationStatus,
 };
 
 interface ApplyJobPayload {
@@ -25,9 +27,7 @@ async function applyJob(payload: ApplyJobPayload) {
     }
 
     const response = await api.post("/applications", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      headers: { "Content-Type": "multipart/form-data" },
     });
 
     return response.data;
@@ -36,10 +36,33 @@ async function applyJob(payload: ApplyJobPayload) {
   }
 }
 
-// get all jobs applies by that jobseeker
 async function getJobSeekerAppliedJobs(jobSeekerId: string) {
   try {
     const response = await api.get(`/applications/jobseeker/${jobSeekerId}`);
+    return response.data;
+  } catch (error: any) {
+    throw error?.response?.data || error;
+  }
+}
+
+async function getApplicationsByJob(jobId: string) {
+  try {
+    const response = await api.get(`/applications/job/${jobId}`);
+    return response.data;
+  } catch (error: any) {
+    throw error?.response?.data || error;
+  }
+}
+
+async function updateApplicationStatus(
+  applicationId: string,
+  payload: {
+    status: "APPROVED" | "REJECTED";
+    actionBy: string;
+  }
+) {
+  try {
+    const response = await api.patch(`/applications/${applicationId}`, payload);
     return response.data;
   } catch (error: any) {
     throw error?.response?.data || error;

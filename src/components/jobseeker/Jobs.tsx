@@ -220,7 +220,7 @@ export default function Jobs() {
               </div>
             </>
           ) : (
-            <p className="js-job-detail-empty">Select a job to view details</p>
+            <p className="js-job-detail-empty">No job available now</p>
           )}
         </div>
       </div>

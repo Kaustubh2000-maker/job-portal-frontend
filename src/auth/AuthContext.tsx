@@ -1,13 +1,7 @@
 import { createContext } from "react";
 
-/* =======================
-   Roles
-======================= */
 export type Role = "JOBSEEKER" | "COMPANY" | "ADMIN";
 
-/* =======================
-   User (Auth)
-======================= */
 export interface User {
   _id: string;
   name: string;
@@ -16,9 +10,6 @@ export interface User {
   role: Role;
 }
 
-/* =======================
-   JobSeeker Profile
-======================= */
 export interface JobSeekerEducation {
   _id: string;
   degree: string;
@@ -52,22 +43,38 @@ export interface JobSeeker {
   updatedAt?: string;
 }
 
-/* =======================
-   Auth Context Type
-======================= */
+export interface Company {
+  _id: string;
+  name: string;
+  industry: string;
+  description: string;
+  website: string;
+  location: string;
+  isActive: boolean;
+}
+
+export interface CompanyUser {
+  companyUserId: string;
+  role: "OWNER" | "EMPLOYEE";
+  status: "PENDING" | "APPROVED" | "REJECTED";
+  company: Company;
+}
+
 export interface AuthContextType {
   user: User | null;
   jobSeeker: JobSeeker | null;
+
+  company: Company | null;
+  companyUser: CompanyUser | null;
 
   isAuthenticated: boolean;
 
   setUser: (user: User) => void;
   setJobSeeker: (jobSeeker: JobSeeker) => void;
+  setCompany: (company: Company) => void;
+  setCompanyUser: (companyUser: CompanyUser) => void;
 
   logout: () => void;
 }
 
-/* =======================
-   Context
-======================= */
 export const AuthContext = createContext<AuthContextType | null>(null);

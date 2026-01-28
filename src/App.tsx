@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import JobseekerRoutes from "./routes/JobseekerRoutes";
 
 import CompanyRoutes from "./routes/CompanyRoutes";
+import ResetPassword from "./pages/login/ResetPassword";
 
 // pages
 // import JobseekerEntry from "./pages/jobseeker/JobseekerEntry";
@@ -26,7 +27,7 @@ function App() {
               </PublicRoute>
             }
           />
-
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           {/* JOBSEEKER ENTRY */}
           <Route
             path="/jobseeker/*"

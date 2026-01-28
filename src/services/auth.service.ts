@@ -1,5 +1,5 @@
 import api from "./api";
-// 🔐 LOGIN
+
 export const loginService = async (payload: {
   email: string;
   password: string;
@@ -8,7 +8,6 @@ export const loginService = async (payload: {
   return response.data;
 };
 
-// 📝 SIGN UP (Company / Jobseeker only)
 export const signupService = async (payload: {
   name: string;
   email: string;
@@ -18,5 +17,21 @@ export const signupService = async (payload: {
   role: "COMPANY" | "JOBSEEKER";
 }) => {
   const response = await api.post("/users/signup", payload);
+  return response.data;
+};
+
+export const forgotPasswordService = async (payload: { email: string }) => {
+  const response = await api.post("/auth/forgot-Password", payload);
+  return response.data;
+};
+
+export const resetPasswordService = async (
+  token: string,
+  payload: {
+    password: string;
+    passwordConfirm: string;
+  }
+) => {
+  const response = await api.patch(`/auth/reset-Password/${token}`, payload);
   return response.data;
 };

@@ -387,3 +387,66 @@
     color: $gray-6;
   }
 }
+
+.company-dash-a-loading {
+  font-size: 1.6rem;
+  margin-top: 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.company-dash-a-interview {
+  padding: 2rem;
+  border-radius: 1.2rem;
+  background-color: $gray-9;
+  border: 1px solid $gray-5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.company-dash-a-i-heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.company-dash-a-i-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.company-dash-a-i-label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.company-dash-a-i-input {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid $gray-7;
+}
+
+.company-dash-a-i-input:focus {
+  outline: none;
+  border-color: $color-primary;
+}
+
+.company-dash-a-i-btn {
+  align-self: flex-start;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  background-color: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.company-dash-a-i-btn:hover {
+  background-color: $color-primary;
+}

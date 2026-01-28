@@ -13,7 +13,6 @@ export default function ExperienceSection() {
   const auth = useContext(AuthContext)!;
   const { user, jobSeeker, setJobSeeker } = auth;
 
-  // ✅ HOOKS MUST ALWAYS RUN
   const [workExperience, setWorkExperience] = useState<WorkExperience[]>(
     jobSeeker?.workExperience?.length
       ? jobSeeker.workExperience
@@ -22,12 +21,9 @@ export default function ExperienceSection() {
 
   const [saving, setSaving] = useState(false);
 
-  // ✅ CONDITIONAL RENDER AFTER HOOKS
   if (jobSeeker?.status !== "Experienced") {
     return null;
   }
-
-  /* ---------- handlers ---------- */
 
   const addExperience = () => {
     setWorkExperience([
@@ -57,8 +53,6 @@ export default function ExperienceSection() {
       setSaving(false);
     }
   };
-
-  /* ---------- UI ---------- */
 
   return (
     <section className="js-profile-section js-profile-exp-secion">

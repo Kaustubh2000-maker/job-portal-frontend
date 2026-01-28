@@ -23,11 +23,18 @@ export default function BasicInfoSection() {
     try {
       setSaving(true);
 
-      const res = await jobSeekerService.updateProfile(user!._id, {
+      const payload: any = {
         gender,
         dob,
         status,
-      });
+      };
+
+      // remove experice if user is fresher
+      if (status === "Fresher") {
+        payload.workExperience = [];
+      }
+
+      const res = await jobSeekerService.updateProfile(user!._id, payload);
 
       setJobSeeker(res.data.jobSeeker);
       toast.success("Basic info updated");

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useAuth } from "../../auth/useAuth";
+import { useAuth } from "../../context/auth/useAuth";
 import { jobService } from "../../services/job.service";
 
 interface Job {

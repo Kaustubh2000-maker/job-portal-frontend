@@ -3,13 +3,35 @@ import api from "./api";
 export const jobSeekerService = {
   getMyProfile,
   createProfile,
+  getAllJobSeekers,
   updateProfile,
 };
+interface GetAllJobSeekersParams {
+  search?: string;
+  page?: number;
+  limit?: number;
+  sort?: string;
+  order?: "asc" | "desc";
+}
 
-/* ===============================
-   GET MY JOBSEEKER PROFILE
-   GET /jobseekers/me
-================================ */
+async function getAllJobSeekers(params?: GetAllJobSeekersParams) {
+  try {
+    const response = await api.get("/jobseekers", {
+      params: {
+        search: params?.search || "",
+        page: params?.page || 1,
+        limit: params?.limit || 10,
+        sort: params?.sort || "createdAt",
+        order: params?.order || "desc",
+      },
+    });
+
+    return response.data;
+  } catch (error: any) {
+    throw error?.response?.data || error;
+  }
+}
+
 async function getMyProfile() {
   try {
     const response = await api.get("/jobseekers/me");

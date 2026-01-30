@@ -1,0 +1,96 @@
+@use "./../veriables.scss" as *;
+
+.admin-dashboard {
+  display: grid;
+  grid-template-columns: 1.3fr 5fr;
+  gap: 2rem;
+  background-color: $gray-7;
+  padding: 2rem;
+  height: 100vh;
+  width: 100vw;
+  transition: all 0.3s;
+}
+
+.admin-sidebar {
+  height: 100%;
+  background-color: $gray-9;
+  border-radius: $border-radius-primary;
+  padding: 2rem 0;
+}
+
+.admin-main {
+  background-color: $gray-9;
+
+  border-radius: $border-radius-primary;
+  padding: 2rem;
+  overflow: scroll;
+}
+.admin-main::-webkit-scrollbar {
+  display: none;
+}
+.a-sec-header {
+  padding: 2rem;
+}
+.a-sec-heading {
+  font-size: 2rem;
+}
+
+.admin-sidebar-title {
+  font-size: 3.2rem;
+  color: $color-primary;
+  text-align: center;
+  margin-bottom: 4.4rem;
+
+  // @include
+}
+
+.admin-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem;
+
+  //   height: 100%;
+}
+
+.admin-sidebar-item {
+  display: flex;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  gap: 2rem;
+  letter-spacing: 1px;
+}
+
+.admin-sidebar-item.active {
+}
+
+.admin-sidebar-icon {
+  color: $color-primary;
+}
+
+.admin-sidebar-text {
+  transition: all 0.3s;
+}
+.admin-sidebar-text:hover {
+  letter-spacing: 2px;
+}
+
+.admin-sidebar-logout {
+  padding: 0 4rem;
+}
+
+.admin-sidebar-logout-btn {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.6rem;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  margin-top: auto;
+  margin-top: 4rem;
+  letter-spacing: 1px;
+}
+
+.admin-sidebar-logout-btn:focus {
+  outline: none;
+}

@@ -4,7 +4,7 @@ import CompanyUsersSection from "../../components/company/CompanyUsersSection";
 import JobsSection from "../../components/company/JobsSection";
 import ApplicationsSection from "../../components/company/ApplicationsSection";
 
-import { useAuth } from "../../auth/useAuth";
+import { useAuth } from "../../context/auth/useAuth";
 
 type Section = "JOBS" | "APPLICATIONS" | "USERS";
 

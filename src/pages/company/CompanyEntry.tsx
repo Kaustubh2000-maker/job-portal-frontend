@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../context/auth/AuthContext";
 import { toast } from "react-toastify";
 
 export default function CompanyEntry() {

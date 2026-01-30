@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 
-import { AuthContext } from "../../../auth/AuthContext";
+import { AuthContext } from "../../../context/auth/AuthContext";
 import { jobSeekerService } from "../../../services/jobseeker.service";
 import { getFileUrl } from "../../../utils/fileUrl";
 import { toast } from "react-toastify";

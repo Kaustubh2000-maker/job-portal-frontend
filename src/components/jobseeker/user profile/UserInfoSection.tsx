@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../auth/AuthContext";
+import { AuthContext } from "../../../context/auth/AuthContext";
 import { userService } from "../../../services/user.service";
 
 type EditableField = "name" | "email" | "mobile" | null;

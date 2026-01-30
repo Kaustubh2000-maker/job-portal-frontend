@@ -11,7 +11,8 @@
   grid-template-columns: 1fr 2fr;
   //   background-color: red;
   gap: 5rem;
-  height: 80rem;
+  min-height: 67rem;
+  max-height: max-content;
   //   overflow: scroll;
 }
 
@@ -112,6 +113,11 @@
 .js-job-detail-apply-div {
 }
 
+.js-job-apply-btn-div {
+  display: flex;
+  // grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
 .js-job-detail-apply-title {
   font-size: 1.6rem;
   font-weight: 500;
@@ -141,7 +147,8 @@
 .js-job-detail-apply-button {
   display: block;
   font-size: 1.6rem;
-  width: 50rem;
+  // width: 50rem;
+  width: 100%;
   font-weight: 700;
 
   padding: 1rem 2rem;

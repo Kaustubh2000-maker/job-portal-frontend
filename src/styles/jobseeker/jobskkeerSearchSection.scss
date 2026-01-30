@@ -6,7 +6,7 @@
 
   @include gradient-bg;
   //   background: linear-gradient(to left, $color-primary, $color-primary-dark);
-  margin-bottom: 10rem;
+  margin-bottom: 4rem;
 }
 
 .js-search-heading {
@@ -55,4 +55,60 @@
   background-color: $color-primary-dark;
   color: $color-white;
   font-weight: 700;
+}
+
+////////////////////////
+.js-search-results {
+  margin-bottom: 10rem;
+}
+
+.js-search-grid {
+  max-width: 120rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 0 auto;
+}
+
+.js-search-searching {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.js-search-empty {
+  font-size: 1.8rem;
+  text-align: center;
+}
+.js-search-col {
+  padding: 2rem;
+}
+.js-search-col-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.js-search-card {
+  margin-bottom: 1rem;
+  padding: 2rem 4rem;
+
+  text-transform: capitalize;
+  border-radius: $border-radius-primary;
+  box-shadow: $box-shadow-lined-border;
+}
+
+.js-search-card-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.js-search-card-sub {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  font-weight: 400;
+  margin-left: 1rem;
+}
+.js-search-card-skills {
+  font-size: 1.4rem;
 }

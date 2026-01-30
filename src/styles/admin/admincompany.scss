@@ -1,0 +1,127 @@
+@use "./../veriables.scss" as *;
+
+.admin-company-query-container {
+  background-color: $gray-9;
+  padding: 2.4rem 3.2rem;
+  border-radius: $border-radius-primary;
+  margin-bottom: 3rem;
+}
+
+.admin-company-query-grid {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.admin-company-query-grid-5-col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.admin-company-query-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-company-query-label {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.admin-company-query-input,
+.admin-company-query-select,
+.admin-company-query-date {
+  font-size: 1.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: $border-radius-secondary;
+  border: $border-black;
+}
+
+.admin-company-query-input:focus,
+.admin-company-query-select:focus,
+.admin-company-query-date:focus {
+  outline: none;
+}
+
+.admin-company-query-actions {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.admin-company-query-btn {
+  font-size: 1.6rem;
+  padding: 0.8rem 2rem;
+  border-radius: $border-radius-primary;
+  border: $border-white;
+  cursor: pointer;
+}
+
+.admin-company-query-btn-search {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.admin-company-query-btn-download {
+  background-color: $gray-7;
+  color: $color-black;
+}
+
+///////////////////////////////////////////////
+///
+.admin-company-results-container {
+  background-color: $gray-9;
+  padding: 3.2rem;
+  border-radius: $border-radius-primary;
+}
+
+.admin-company-results-heading {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+
+.admin-company-results-loading,
+.admin-company-results-empty {
+  font-size: 1.6rem;
+  text-align: center;
+  color: $gray-5;
+}
+
+.admin-company-results-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-company-results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-company-results-thead {
+  background-color: $gray-7;
+}
+
+.admin-company-results-th {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.2rem 1.6rem;
+  text-align: left;
+  border-bottom: 2px solid $gray-6;
+  white-space: nowrap;
+}
+
+.admin-company-results-row {
+  transition: background-color 0.2s ease;
+}
+
+.admin-company-results-row:hover {
+  background-color: $gray-8;
+}
+
+.admin-company-results-td {
+  font-size: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  border-bottom: 1px solid $gray-6;
+  vertical-align: top;
+  white-space: nowrap;
+}

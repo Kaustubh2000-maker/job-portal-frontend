@@ -349,7 +349,7 @@
 // }
 
 import { useContext } from "react";
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../context/auth/AuthContext";
 
 import UserInfoSection from "./user profile/UserInfoSection";
 import BasicInfoSection from "./user profile/BasicInfoSection";

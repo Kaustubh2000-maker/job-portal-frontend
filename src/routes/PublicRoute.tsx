@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../auth/useAuth";
+import { useAuth } from "../context/auth/useAuth";
 
 const PublicRoute = ({ children }: { children: ReactElement }) => {
   const { user } = useAuth();

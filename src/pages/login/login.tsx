@@ -269,7 +269,7 @@ import {
   forgotPasswordService,
 } from "../../services/auth.service";
 import { toast } from "react-toastify";
-import { useAuth } from "../../auth/useAuth";
+import { useAuth } from "../../context/auth/useAuth";
 
 type AuthMode = "LOGIN" | "SIGNUP" | "FORGOT_PASSWORD";
 type SignupRole = "COMPANY" | "JOBSEEKER";

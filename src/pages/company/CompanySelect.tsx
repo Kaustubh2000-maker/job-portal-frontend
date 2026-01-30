@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { companiesService } from "../../services/companies.service";
 import { companyUserService } from "../../services/companyuser.service";
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../context/auth/AuthContext";
 import { toast } from "react-toastify";
-import { useAuth } from "../../auth/useAuth";
+import { useAuth } from "../../context/auth/useAuth";
 
 interface Company {
   _id: string;

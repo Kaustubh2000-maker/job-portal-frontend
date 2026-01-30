@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login/login";
-import { AuthProvider } from "./auth/AuthProvider";
+import { AuthProvider } from "./context/auth/AuthProvider";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import JobseekerRoutes from "./routes/JobseekerRoutes";
+import AdminRoutes from "./routes/AdminRoutes";
 
 import CompanyRoutes from "./routes/CompanyRoutes";
 import ResetPassword from "./pages/login/ResetPassword";
@@ -42,6 +43,14 @@ function App() {
             element={
               <ProtectedRoute allowedRole="COMPANY">
                 <CompanyRoutes />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/*"
+            element={
+              <ProtectedRoute allowedRole="ADMIN">
+                <AdminRoutes />
               </ProtectedRoute>
             }
           />

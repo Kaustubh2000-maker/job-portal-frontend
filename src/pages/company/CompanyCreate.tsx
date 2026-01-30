@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { companiesService } from "../../services/companies.service";
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../context/auth/AuthContext";
 import { toast } from "react-toastify";
 
 export default function CompanyCreate() {

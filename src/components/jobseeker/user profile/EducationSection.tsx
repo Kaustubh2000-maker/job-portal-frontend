@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 // import { AuthContext } from "../../auth/AuthContext";
 // import { jobSeekerService } from "../../services/jobseeker.service";
-import { AuthContext } from "../../../auth/AuthContext";
+import { AuthContext } from "../../../context/auth/AuthContext";
 import { jobSeekerService } from "../../../services/jobseeker.service";
 import { toast } from "react-toastify";
 

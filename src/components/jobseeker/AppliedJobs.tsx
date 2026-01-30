@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { applicationService } from "../../services/application.service";
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../context/auth/AuthContext";
 
 interface Application {
   _id: string;

@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { AuthContext } from "../../../auth/AuthContext";
+import { AuthContext } from "../../../context/auth/AuthContext";
 import { jobSeekerService } from "../../../services/jobseeker.service";
 import { getFileUrl } from "../../../utils/fileUrl";
 import { toast } from "react-toastify";
@@ -30,7 +30,7 @@ export default function ResumeSection() {
 
   return (
     <section className="js-profile-section js-profile-resume">
-      {/* <h3 className="js-profile-resume-title">Resume</h3> */}
+      <h3 className="js-profile-resume-title">Resume</h3>
 
       <div className="js-profile-resume-div">
         {jobSeeker?.resume && (

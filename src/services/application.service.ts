@@ -5,6 +5,8 @@ export const applicationService = {
   getJobSeekerAppliedJobs,
   getApplicationsByJob,
   updateApplicationStatus,
+  getAllApplicationsForAdmin,
+  exportApplicationsExcel,
 };
 
 interface ApplyJobPayload {
@@ -67,4 +69,16 @@ async function updateApplicationStatus(
   } catch (error: any) {
     throw error?.response?.data || error;
   }
+}
+
+async function getAllApplicationsForAdmin(params?: any) {
+  const res = await api.get("/applications/admin", { params });
+  return res.data;
+}
+
+async function exportApplicationsExcel(params?: any) {
+  return api.get("/applications/admin/export", {
+    params,
+    responseType: "blob",
+  });
 }

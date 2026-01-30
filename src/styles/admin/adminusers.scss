@@ -1,0 +1,129 @@
+@use "./../veriables.scss" as *;
+
+.admin-user-query-container {
+  background-color: $gray-9;
+  padding: 2.4rem 3.2rem;
+  border-radius: $border-radius-primary;
+  margin-bottom: 3rem;
+}
+
+.admin-user-query-grid {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.admin-user-query-grid-5-col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.admin-user-query-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-user-query-label {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.admin-user-query-input,
+.admin-user-query-select,
+.admin-user-query-date {
+  font-size: 1.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: $border-radius-secondary;
+  border: $border-black;
+}
+
+.admin-user-query-input:focus,
+.admin-user-query-select:focus,
+.admin-user-query-date:focus {
+  outline: none;
+}
+
+.admin-user-query-actions {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.admin-user-query-btn {
+  font-size: 1.6rem;
+  padding: 0.8rem 2rem;
+  border-radius: $border-radius-primary;
+  border: $border-white;
+  cursor: pointer;
+}
+
+.admin-user-query-btn-search {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.admin-user-query-btn-download {
+  background-color: $gray-7;
+  color: $color-black;
+}
+//////////////////////////////////////////////////////
+
+.admin-user-results-container {
+  background-color: $gray-9;
+  padding: 3.2rem;
+  border-radius: $border-radius-primary;
+}
+
+.admin-user-results-heading {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+
+.admin-user-results-loading,
+.admin-user-results-empty {
+  font-size: 1.6rem;
+  text-align: center;
+  color: $gray-5;
+}
+
+.admin-user-results-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-user-results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-user-results-thead {
+  background-color: $gray-7;
+}
+
+.admin-user-results-head-row {
+}
+
+.admin-user-results-th {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.2rem 1.6rem;
+  text-align: left;
+  border-bottom: 2px solid $gray-6;
+  white-space: nowrap;
+}
+
+.admin-user-results-row {
+  transition: background-color 0.2s ease;
+}
+
+.admin-user-results-row:hover {
+  background-color: $gray-8;
+}
+
+.admin-user-results-td {
+  font-size: 1.6rem;
+  padding: 1.2rem 1.6rem;
+  border-bottom: 1px solid $gray-6;
+  vertical-align: top;
+  white-space: nowrap;
+}

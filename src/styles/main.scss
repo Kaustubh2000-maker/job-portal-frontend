@@ -1,6 +1,8 @@
 @use "./constants.scss";
 @use "./veriables.scss";
+
 @use "./login/login.scss";
+
 @use "./jobseeker/jobseekerOnboarding.scss";
 @use "./jobseeker/jobseekerNavbar.scss";
 @use "./jobseeker/jobseekerFooter.scss";
@@ -10,6 +12,12 @@
 @use "./jobseeker/jobseekerAppliedJobs.scss";
 @use "./jobseeker/jobseekerCompanies.scss";
 @use "./jobseeker/jobseekerProfile.scss";
+
 @use "./company/companyselect.scss";
 @use "./company/companycreate.scss";
 @use "./company/companydashboard.scss";
+
+@use "./admin/adminSidebarAndDashboard.scss";
+@use "./admin/adminusers.scss";
+@use "./admin/admincompany.scss";
+@use "./admin//adminapplicaion.scss";

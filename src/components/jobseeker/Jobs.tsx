@@ -1,7 +1,7 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { jobService } from "../../services/job.service";
 import { applicationService } from "../../services/application.service";
-import { AuthContext } from "../../auth/AuthContext";
+import { AuthContext } from "../../context/auth/AuthContext";
 import { toast } from "react-toastify";
 
 interface Job {
@@ -26,20 +26,16 @@ interface Job {
   updatedAt: string;
 }
 
-type ApplyType = "APPLY_NOW" | "APPLY_WITH_NEW_RESUME";
-
 export default function Jobs() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
-
-  // apply states
-  const [applyType, setApplyType] = useState<ApplyType>("APPLY_NOW");
-  const [resume, setResume] = useState<File | null>(null);
-
   const [applying, setApplying] = useState(false);
+
   const auth = useContext(AuthContext);
   const jobSeekerId = auth?.jobSeeker?._id;
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     fetchJobs();
@@ -49,7 +45,6 @@ export default function Jobs() {
     try {
       const res = await jobService.getAllJobs();
       const jobsData = res?.data?.jobs || [];
-
       setJobs(jobsData);
       setSelectedJob(jobsData[0] || null);
     } catch (error) {
@@ -59,17 +54,10 @@ export default function Jobs() {
     }
   };
 
-  const handleApply = async () => {
-    if (!selectedJob) return;
-
-    // ✅ GUARD (this fixes TS + runtime safety)
-    if (!jobSeekerId) {
-      alert("Jobseeker profile not loaded yet");
-      return;
-    }
-
-    if (applyType === "APPLY_WITH_NEW_RESUME" && !resume) {
-      alert("Please upload a resume");
+  /* ================= APPLY NOW ================= */
+  const handleApplyNow = async () => {
+    if (!selectedJob || !jobSeekerId) {
+      toast.error("Jobseeker profile not loaded");
       return;
     }
 
@@ -78,28 +66,48 @@ export default function Jobs() {
 
       await applicationService.applyJob({
         jobId: selectedJob._id,
-        jobSeekerId, // ✅ now TS knows it's string
-        applyType,
-        resume: resume || undefined,
+        jobSeekerId,
+        applyType: "APPLY_NOW",
       });
 
-      // alert("Job applied successfully!");
       toast.success("Job applied successfully!");
-
-      setApplyType("APPLY_NOW");
-      setResume(null);
     } catch (error) {
-      console.error(error);
-      toast.error("Alredy applied to this job");
+      toast.error("Already applied to this job");
     } finally {
       setApplying(false);
+    }
+  };
+
+  /* ========== APPLY WITH NEW RESUME (AUTO APPLY) ========== */
+  const handleResumeSelected = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file || !selectedJob || !jobSeekerId) return;
+
+    try {
+      setApplying(true);
+
+      await applicationService.applyJob({
+        jobId: selectedJob._id,
+        jobSeekerId,
+        applyType: "APPLY_WITH_NEW_RESUME",
+        resume: file,
+      });
+
+      toast.success("Job applied successfully!");
+    } catch (error) {
+      toast.error("Already applied to this job");
+    } finally {
+      setApplying(false);
+      e.target.value = ""; // reset input
     }
   };
 
   if (loading) {
     return (
       <div className="loading-div">
-        <p className="loading-text"> Loading jobs...</p>
+        <p className="loading-text">Loading jobs...</p>
       </div>
     );
   }
@@ -152,7 +160,7 @@ export default function Jobs() {
               </p>
 
               <div className="js-job-detail-skills">
-                <p className="js-job-detail-skills-title">Skills Required : </p>
+                <p className="js-job-detail-skills-title">Skills Required :</p>
                 <ul className="js-job-detail-skill-list">
                   {selectedJob.skills.map((skill) => (
                     <li key={skill} className="js-job-detail-skill-item">
@@ -171,52 +179,38 @@ export default function Jobs() {
                 </p>
               </div>
 
-              {/* APPLY SECTION */}
-
+              {/* ================= APPLY SECTION ================= */}
               <div className="js-job-detail-apply-div">
                 <h3 className="js-job-detail-apply-title">
                   Apply for this job
                 </h3>
-                <div className="js-job-detail-apply-option-div">
-                  <label className="js-job-detail-apply-option">
-                    <input
-                      type="radio"
-                      checked={applyType === "APPLY_NOW"}
-                      onChange={() => setApplyType("APPLY_NOW")}
-                      className="js-job-detail-apply-radio"
-                    />
-                    Apply Now
-                  </label>
-                </div>
-                <div className="js-job-detail-apply-option-div">
-                  <label className="js-job-detail-apply-option">
-                    <input
-                      type="radio"
-                      checked={applyType === "APPLY_WITH_NEW_RESUME"}
-                      onChange={() => setApplyType("APPLY_WITH_NEW_RESUME")}
-                      className="js-job-detail-apply-radio"
-                    />
+
+                <div className="js-job-apply-btn-div">
+                  <button
+                    onClick={handleApplyNow}
+                    disabled={applying}
+                    className="js-job-detail-apply-button"
+                  >
+                    {applying ? "Applying..." : "Apply Now"}
+                  </button>
+
+                  <button
+                    type="button"
+                    disabled={applying}
+                    className="js-job-detail-apply-button js-job-detail-apply-secondary"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
                     Apply with New Resume
-                  </label>
+                  </button>
                 </div>
 
-                {applyType === "APPLY_WITH_NEW_RESUME" && (
-                  <input
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    onChange={(e) =>
-                      setResume(e.target.files ? e.target.files[0] : null)
-                    }
-                    className="js-job-detail-apply-file"
-                  />
-                )}
-                <button
-                  onClick={handleApply}
-                  disabled={applying}
-                  className="js-job-detail-apply-button"
-                >
-                  {applying ? "Applying..." : "Apply"}
-                </button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  style={{ display: "none" }}
+                  onChange={handleResumeSelected}
+                />
               </div>
             </>
           ) : (

@@ -8,7 +8,7 @@
   width: 110rem;
   margin: 0 auto;
   background-color: $gray-9;
-  padding: 2rem 4rem;
+  padding: 4rem 4rem;
   height: max-content;
   border-radius: $border-radius-primary;
 }
@@ -185,52 +185,63 @@
 //////////////////////////////
 
 .js-profile-resume {
-  padding: 4rem;
-  @include gradient-bg-light;
-  border-radius: $border-radius-primary;
+  // padding: 4rem;
+  // @include gradient-bg-light;
+  // border-radius: $border-radius-primary;
 
-  width: 50%;
-  margin: 0 auto;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.15);
+  // width: 50%;
+  // margin: 0 auto;
+  // box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.15);
 
   margin-bottom: 6.4rem;
 }
 
 .js-profile-resume-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
 }
 
 .js-profile-resume-div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
   gap: 2rem;
-  background-color: white;
-  padding: 4rem;
-  width: 70%;
-  border-radius: $border-radius-primary;
-  margin: 0 auto;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  // background-color: white;
+  // padding: 4rem;
+  // width: 70%;
+  // border-radius: $border-radius-primary;
+  // margin: 0 auto;
+  // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
-.js-profile-resume-link,
-.js-profile-resume-update-btn {
+.js-profile-resume-link {
   background-color: $color-primary;
   border: $border-white;
   border-radius: $border-radius-primary;
   color: $color-white;
-  font-size: 1.8rem;
-  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
   text-decoration: none;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
-.js-profile-resume-link:hover,
-.js-profile-resume-update-btn:hover {
+.js-profile-resume-link:hover {
   background-color: $color-primary-dark;
 }
 
 .js-profile-resume-update-btn {
+  background-color: transparent;
+  border: $border-black;
+  border-radius: $border-radius-primary;
+  color: $color-black;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+.js-profile-resume-update-btn:hover {
+  background-color: $color-white;
 }
 
 //////////////////////////////

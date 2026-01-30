@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-import { useAuth } from "../../auth/useAuth";
+import { useAuth } from "../../context/auth/useAuth";
 
 export default function JobseekerEntry() {
   const navigate = useNavigate();

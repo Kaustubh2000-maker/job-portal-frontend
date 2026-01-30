@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { applicationService } from "../../services/application.service";
 import { jobService } from "../../services/job.service";
 // import { interviewService } from "../../services/interview.service";
-import { useAuth } from "../../auth/useAuth";
+import { useAuth } from "../../context/auth/useAuth";
 import { getFileUrl } from "../../utils/fileUrl";
 import { scheduleInterviewService } from "../../services/interview.service";
 

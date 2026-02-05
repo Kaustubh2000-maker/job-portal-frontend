@@ -125,3 +125,127 @@
   vertical-align: top;
   white-space: nowrap;
 }
+
+@media (max-width: 1250px) {
+  .admin-company-query-container {
+    padding: 2rem;
+  }
+
+  .admin-company-query-grid-5-col {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .admin-company-query-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .admin-company-results-container {
+    padding: 2.4rem;
+  }
+
+  .admin-company-results-table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-main {
+    padding: 0;
+  }
+
+  .admin-company-query-grid-5-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .admin-company-query-label {
+    font-size: 1.3rem;
+  }
+
+  .admin-company-query-input,
+  .admin-company-query-select,
+  .admin-company-query-date {
+    font-size: 1.3rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .admin-company-query-container {
+    padding: 1.6rem;
+  }
+
+  .admin-company-results-container {
+    padding: 1.6rem;
+  }
+
+  .admin-company-query-actions {
+    gap: 1.2rem;
+  }
+
+  .admin-company-query-btn {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .admin-company-results-heading {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .admin-company-results-th,
+  .admin-company-results-td {
+    font-size: 1.4rem;
+    padding: 1rem 1.2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .admin-company-query-grid-5-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-company-query-grid-5-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .admin-company-query-input,
+  .admin-company-query-select,
+  .admin-company-query-date {
+    font-size: 1.25rem;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .admin-company-query-field {
+    gap: 0.5rem;
+  }
+  .admin-company-query-label {
+    font-size: 1.25rem;
+  }
+
+  .admin-company-query-container {
+    padding: 1.2rem;
+  }
+
+  .admin-company-results-container {
+    padding: 1.2rem;
+  }
+
+  .admin-company-results-th,
+  .admin-company-results-td {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-company-query-grid-5-col {
+    // grid-template-columns: repeat(1, 1fr);
+  }
+
+  .admin-company-query-input {
+    // width: 10rem;
+    width: 100%;
+  }
+}

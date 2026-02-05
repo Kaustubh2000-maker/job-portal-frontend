@@ -69,3 +69,95 @@
   margin-bottom: 1rem;
   font-size: 1.4rem;
 }
+
+@media (max-width: 1200px) {
+  .js-aj-container {
+    width: 100%;
+    padding: 2rem 3rem;
+    height: auto;
+  }
+
+  .js-aj-title {
+    font-size: 3.6rem;
+    margin-bottom: 4rem;
+  }
+
+  .js-aj-cards-grid {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .js-aj-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .js-aj-title {
+    font-size: 3.2rem;
+  }
+
+  .js-aj-card-title {
+    font-size: 1.7rem;
+  }
+
+  .js-aj-card-location,
+  .js-aj-card-status,
+  .js-aj-card-date {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .js-aj-page {
+    padding: 1.6rem;
+  }
+
+  .js-aj-container {
+    padding: 2rem;
+  }
+
+  .js-aj-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .js-aj-title {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+  }
+
+  .js-aj-card {
+    padding: 1.8rem;
+  }
+
+  .js-aj-card-title {
+    font-size: 1.6rem;
+  }
+
+  .js-aj-card-location,
+  .js-aj-card-status,
+  .js-aj-card-date {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-aj-title {
+    font-size: 2.4rem;
+  }
+
+  .js-aj-card {
+    padding: 1.6rem;
+  }
+
+  .js-aj-card-title {
+    font-size: 1.5rem;
+  }
+
+  .js-aj-card-location,
+  .js-aj-card-status,
+  .js-aj-card-date {
+    font-size: 1.25rem;
+  }
+}

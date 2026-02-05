@@ -24,3 +24,33 @@
   color: #cfcfcf;
   font-size: 1.4rem;
 }
+
+@media (max-width: 992px) {
+  .footer-links span {
+    font-size: 1.5rem;
+  }
+
+  .footer-copy {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-links span {
+    font-size: 1.4rem;
+  }
+
+  .footer-copy {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links span {
+    font-size: 1.3rem;
+  }
+
+  .footer-copy {
+    font-size: 1.2rem;
+  }
+}

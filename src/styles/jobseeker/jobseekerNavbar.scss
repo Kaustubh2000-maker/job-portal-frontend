@@ -45,3 +45,70 @@
   background-color: transparent;
   color: $gray-1;
 }
+
+.jsn-menu-btn {
+  display: none;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .jobseeker-navbar {
+    padding: 2rem;
+  }
+
+  .jsn-links {
+    display: none;
+  }
+
+  .jsn-menu-btn {
+    display: block;
+  }
+}
+
+/* OVERLAY */
+.jsn-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: $gray-9;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jsn-overlay-close {
+  position: absolute;
+  top: 2rem;
+  right: 2.4rem;
+  font-size: 3.2rem;
+  cursor: pointer;
+}
+
+.jsn-overlay-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.jsn-overlay-links a {
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: $gray-1;
+}
+
+.jsn-overlay-links a.active {
+  color: $color-primary;
+}
+
+.jsn-overlay-logout {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  background: none;
+  border: none;
+  color: $color-primary;
+  cursor: pointer;
+}

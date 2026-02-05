@@ -195,3 +195,116 @@
   color: $color-white;
   border-radius: $border-radius-primary;
 }
+
+@media (max-width: 1250px) {
+  .jbo-page {
+    padding: 3rem 4rem;
+  }
+
+  .jbo-container {
+    padding: 3rem 4rem;
+  }
+
+  .jbo-grid-4-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1050px) {
+  .jbo-page {
+    padding: 3rem 2.4rem;
+  }
+
+  .jbo-container {
+    padding: 3rem 2.4rem;
+  }
+
+  .jbo-grid-3-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .jbo-grid-2-col {
+    grid-template-columns: 1fr;
+  }
+
+  .jbo-radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .jbo-radio-group-inner-div {
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .jbo-date-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .jbo-skill-div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .jbo-file-upload-group {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .jbo-heading {
+    font-size: 2.6rem;
+  }
+
+  .jbo-obj-div {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .jbo-obj-del-btn {
+    align-self: flex-start;
+  }
+
+  .jbo-input-skill,
+  .jbo-input-text,
+  .jbo-date-input {
+    width: 100%;
+  }
+
+  .jbo-file-div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jbo-page {
+    padding: 2rem 1.6rem;
+  }
+
+  .jbo-container {
+    padding: 2rem 1.6rem;
+  }
+
+  .jbo-heading {
+    font-size: 2.2rem;
+  }
+
+  .jbo-grid-3-col {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+  .jbo-submit-btn {
+    width: 100%;
+  }
+}

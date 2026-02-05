@@ -56,6 +56,8 @@ export default function ApplicationsSection({
   const [scheduledAt, setScheduledAt] = useState("");
   const [meetingLink, setMeetingLink] = useState("");
 
+  const [scheduling, setScheduling] = useState(false);
+
   useEffect(() => {
     setSelectedJobId(jobId);
   }, [jobId]);
@@ -106,6 +108,7 @@ export default function ApplicationsSection({
     }
 
     try {
+      setScheduling(true);
       await scheduleInterviewService({
         applicationId: interviewFor,
         scheduledAt,
@@ -123,6 +126,8 @@ export default function ApplicationsSection({
       toast.error(
         error?.response?.data?.message || "Failed to schedule interview"
       );
+    } finally {
+      setScheduling(false);
     }
   };
 
@@ -247,8 +252,10 @@ export default function ApplicationsSection({
                 <button
                   className="company-dash-a-i-btn"
                   onClick={scheduleInterview}
+                  disabled={scheduling}
                 >
-                  Schedule Interview
+                  {/* Schedule Interview */}
+                  {scheduling ? "Sending..." : "Schedule Interview"}
                 </button>
               </div>
             )}

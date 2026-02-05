@@ -3,7 +3,16 @@ import { jobService } from "../../services/job.service";
 import { applicationService } from "../../services/application.service";
 import { AuthContext } from "../../context/auth/AuthContext";
 import { toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
 
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  nrmlLeft,
+  nrmlRight,
+  nrmlScaleUp,
+  nrmlVisible,
+} from "../../animations/animations";
 interface Job {
   _id: string;
   title: string;
@@ -37,6 +46,9 @@ export default function Jobs() {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
+  const location = useLocation();
+  const selectedJobId = location.state?.selectedJobId;
+
   useEffect(() => {
     fetchJobs();
   }, []);
@@ -46,13 +58,24 @@ export default function Jobs() {
       const res = await jobService.getAllJobs();
       const jobsData = res?.data?.jobs || [];
       setJobs(jobsData);
-      setSelectedJob(jobsData[0] || null);
+      // setSelectedJob(jobsData[0] || null);
     } catch (error) {
       console.error("Failed to fetch jobs", error);
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (!jobs.length) return;
+
+    if (selectedJobId) {
+      const foundJob = jobs.find((job) => job._id === selectedJobId);
+      setSelectedJob(foundJob || jobs[0]);
+    } else {
+      setSelectedJob(jobs[0]);
+    }
+  }, [jobs, selectedJobId]);
 
   /* ================= APPLY NOW ================= */
   const handleApplyNow = async () => {
@@ -117,8 +140,9 @@ export default function Jobs() {
       <div className="js-jobs-container">
         {/* LEFT: JOB LIST */}
         <div className="js-jobs-flex">
-          {jobs.map((job) => (
-            <div
+          {jobs.map((job, index) => (
+            <motion.div
+              {...nrmlVisible(0.1 * index)}
               key={job._id}
               className={`js-jobs-list ${
                 selectedJob?._id === job._id ? "job-card--active" : ""
@@ -128,12 +152,12 @@ export default function Jobs() {
               <h4 className="js-jobs-list-heading">{job.title}</h4>
               <p className="js-jobs-list-locaion">{job.location}</p>
               <p className="js-jobs-list-company-name">{job.company.name}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* RIGHT: JOB DETAILS */}
-        <div className="js-job-detail-div">
+        <motion.div className="js-job-detail-div " {...nrmlVisible(0.2)}>
           {selectedJob ? (
             <>
               <h2 className="js-job-detail-title">{selectedJob.title}</h2>
@@ -216,7 +240,7 @@ export default function Jobs() {
           ) : (
             <p className="js-job-detail-empty">No job available now</p>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

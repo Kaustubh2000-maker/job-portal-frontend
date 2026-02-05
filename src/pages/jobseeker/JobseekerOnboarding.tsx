@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { useAuth } from "../../context/auth/useAuth";
 
 export default function JobseekerOnboarding() {
+  const { setJobSeeker } = useAuth();
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -61,6 +64,14 @@ export default function JobseekerOnboarding() {
       await api.post("/jobseekers", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+
+      // await api.post("/jobseekers", formData);
+
+      // 🔥 FETCH PROFILE AFTER CREATION
+      const res = await api.get("/jobseekers/me");
+      setJobSeeker(res.data.data.jobseeker);
+
+      // navigate("/jobseeker/dashboard", { replace: true });
 
       toast.success("Profile completed successfully");
       navigate("/jobseeker/dashboard", { replace: true });

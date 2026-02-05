@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 
+import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  nrmlLeft,
+  nrmlRight,
+  nrmlScaleUp,
+  nrmlVisible,
+} from "../../animations/animations";
+
 export default function SearchSection() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -8,6 +18,8 @@ export default function SearchSection() {
     jobs: any[];
     companies: any[];
   }>({ jobs: [], companies: [] });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (query.trim().length < 2) {
@@ -40,8 +52,9 @@ export default function SearchSection() {
   };
 
   const handleJobClick = (id: string) => {
-    console.log("JOB ID →", id);
-    // later: navigate(`/jobs/${id}`)
+    navigate("/jobseeker/dashboard/jobs", {
+      state: { selectedJobId: id },
+    });
   };
 
   const handleCompanyClick = (id: string) => {
@@ -56,13 +69,15 @@ export default function SearchSection() {
   return (
     <>
       <div className="js-search-container">
-        <h2 className="js-search-heading">Find Your Dream Job Today</h2>
-        <p className="js-search-sub-text">
+        <motion.h2 className="js-search-heading" {...nrmlScaleUp(0.2)}>
+          Find Your Dream Job Today
+        </motion.h2>
+        <motion.p className="js-search-sub-text" {...nrmlScaleUp(0.3)}>
           Explore thousands of opportunities from top companies and build your
           career
-        </p>
+        </motion.p>
 
-        <div className="js-search-div">
+        <motion.div className="js-search-div" {...nrmlScaleUp(0.4)}>
           <input
             className="js-search-imput"
             type="text"
@@ -78,7 +93,7 @@ export default function SearchSection() {
           >
             Search
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* ================= RESULTS ================= */}

@@ -516,3 +516,144 @@
   color: $color-white;
   border-radius: $border-radius-primary;
 }
+
+@media (max-width: 1200px) {
+  .js-profile-container {
+    width: 100%;
+    padding: 3rem;
+  }
+
+  .js-profile-photo-wrapper {
+    margin-left: 0;
+  }
+
+  .js-profile-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .js-profile-user-value.js-profile-user-value-name {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .js-profile-head {
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .js-profile-photo-wrapper {
+    margin-left: 0;
+  }
+
+  .js-profile-user-row {
+    justify-content: center;
+  }
+
+  .js-profile-user-value {
+    font-size: 1.6rem;
+  }
+
+  .js-profile-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+  }
+
+  .js-profile-details-save-btn {
+    align-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .js-profile-page {
+    padding: 1.6rem;
+  }
+
+  .js-profile-container {
+    padding: 2.4rem 2rem;
+  }
+
+  .js-profile-user-value.js-profile-user-value-name {
+    font-size: 2.2rem;
+  }
+
+  .js-profile-details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .js-profile-resume-div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .js-profile-skills-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .js-profile-skills-add-btn {
+    align-self: flex-start;
+  }
+
+  .js-profile-obj-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .js-profile-exp-del-btn,
+  .js-profile-edu-del-btn {
+    align-self: flex-start;
+  }
+
+  .js-profile-exp-add-save-btn-div,
+  .js-profile-edu-add-save-btn-div {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-profile-user-value.js-profile-user-value-name {
+    font-size: 2rem;
+  }
+
+  .js-profile-user-row {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .js-profile-user-value {
+    font-size: 1.4rem;
+  }
+
+  .js-profile-details-label,
+  .js-profile-exp-label,
+  .js-profile-edu-label {
+    font-size: 1.4rem;
+  }
+
+  .js-profile-details-control,
+  .js-profile-exp-input,
+  .js-profile-edu-input {
+    font-size: 1.4rem;
+  }
+
+  .js-profile-skill-item {
+    font-size: 1.5rem;
+  }
+
+  .js-profile-skill-text {
+    font-size: 1.4rem;
+  }
+
+  .js-profile-details-save-btn,
+  .js-profile-exp-add-btn,
+  .js-profile-exp-save-btn,
+  .js-profile-edu-add-btn,
+  .js-profile-edu-save-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

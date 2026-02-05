@@ -112,3 +112,95 @@
 .js-search-card-skills {
   font-size: 1.4rem;
 }
+
+@media (max-width: 1200px) {
+  .js-search-container {
+    padding: 6rem 4rem;
+  }
+
+  .js-search-grid {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .js-search-container {
+    padding: 5rem 3rem;
+  }
+
+  .js-search-heading {
+    font-size: 3.2rem;
+  }
+
+  .js-search-sub-text {
+    font-size: 1.6rem;
+  }
+
+  .js-search-imput {
+    width: 32rem !important;
+  }
+
+  .js-search-grid {
+    grid-template-columns: 1fr;
+    max-width: 80rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .js-search-container {
+    padding: 4rem 2rem;
+  }
+
+  .js-search-heading {
+    font-size: 2.8rem;
+  }
+
+  .js-search-sub-text {
+    font-size: 1.5rem;
+  }
+
+  .js-search-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .js-search-imput {
+    width: 100% !important;
+    max-width: 28rem;
+  }
+
+  .js-search-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-search-heading {
+    font-size: 2.4rem;
+  }
+
+  .js-search-sub-text {
+    font-size: 1.4rem;
+  }
+
+  .js-search-div {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+  }
+
+  .js-search-imput {
+    max-width: 100% !important;
+    border-radius: 11px;
+  }
+
+  .js-search-button {
+    border-radius: 11px;
+    width: 100%;
+  }
+
+  .js-search-card-title {
+    font-size: 1.5rem;
+  }
+}

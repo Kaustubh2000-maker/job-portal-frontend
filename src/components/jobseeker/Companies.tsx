@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { companiesService } from "../../services/companies.service";
+import { motion, AnimatePresence } from "framer-motion";
 
-/* =======================
-   Types
-======================= */
+import {
+  nrmlLeft,
+  nrmlRight,
+  nrmlScaleUp,
+  nrmlVisible,
+} from "../../animations/animations";
+
 interface Company {
   _id: string;
   name: string;
@@ -14,9 +19,6 @@ interface Company {
   createdAt: string;
 }
 
-/* =======================
-   Component
-======================= */
 export default function Companies() {
   const [companies, setCompanies] = useState<Company[]>([]);
   const [loading, setLoading] = useState(true);
@@ -54,8 +56,12 @@ export default function Companies() {
           <p className="js-c-empty">No companies found.</p>
         ) : (
           <div className="js-c-grid">
-            {companies.map((company) => (
-              <div key={company._id} className="js-c-card">
+            {companies.map((company, index) => (
+              <motion.div
+                key={company._id}
+                className="js-c-card"
+                {...nrmlVisible(0.1 * index)}
+              >
                 <h3 className="js-c-card-name">{company.name}</h3>
 
                 <p className="js-c-card-text">Industry : {company.industry}</p>
@@ -74,7 +80,7 @@ export default function Companies() {
                 >
                   Visit Website
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}

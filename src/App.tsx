@@ -11,9 +11,6 @@ import AdminRoutes from "./routes/AdminRoutes";
 import CompanyRoutes from "./routes/CompanyRoutes";
 import ResetPassword from "./pages/login/ResetPassword";
 
-// pages
-// import JobseekerEntry from "./pages/jobseeker/JobseekerEntry";
-
 function App() {
   return (
     <AuthProvider>
@@ -57,8 +54,8 @@ function App() {
         </Routes>
 
         <ToastContainer
-          position="top-right"
-          autoClose={3000}
+          position={window.innerWidth < 768 ? "top-center" : "top-right"}
+          autoClose={1000}
           hideProgressBar={false}
           closeOnClick
           pauseOnHover

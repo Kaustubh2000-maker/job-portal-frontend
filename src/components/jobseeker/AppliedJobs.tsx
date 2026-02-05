@@ -14,6 +14,15 @@ interface Application {
   };
 }
 
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  nrmlLeft,
+  nrmlRight,
+  nrmlScaleUp,
+  nrmlVisible,
+} from "../../animations/animations";
+
 export default function AppliedJobs() {
   const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
@@ -71,8 +80,12 @@ export default function AppliedJobs() {
         <h2 className="js-aj-title">Applied Jobs</h2>
 
         <div className="js-aj-cards-grid">
-          {applications.map((app) => (
-            <div key={app._id} className="js-aj-card">
+          {applications.map((app, index) => (
+            <motion.div
+              key={app._id}
+              className="js-aj-card"
+              {...nrmlVisible(0.1 * index)}
+            >
               <h3 className="js-aj-card-title">{app.job.title}</h3>
 
               <p className="js-aj-card-location">
@@ -98,7 +111,7 @@ export default function AppliedJobs() {
               <p className="js-aj-card-date">
                 Applied On : {new Date(app.createdAt).toLocaleDateString()}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

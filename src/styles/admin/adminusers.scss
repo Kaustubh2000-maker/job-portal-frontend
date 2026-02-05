@@ -127,3 +127,116 @@
   vertical-align: top;
   white-space: nowrap;
 }
+
+@media (max-width: 1250px) {
+  .admin-user-query-container {
+    padding: 2rem;
+  }
+
+  .admin-user-query-grid-5-col {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .admin-user-query-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .admin-user-results-container {
+    padding: 2.4rem;
+  }
+
+  .admin-user-results-table-wrapper {
+    overflow-x: auto;
+  }
+}
+@media (max-width: 768px) {
+  .admin-main {
+    padding: 0;
+  }
+  .admin-user-query-grid-5-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .admin-user-query-label {
+    font-size: 1.3rem;
+  }
+
+  .admin-user-query-input,
+  .admin-user-query-select,
+  .admin-user-query-date {
+    font-size: 1.3rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .admin-user-query-container {
+    padding: 1.6rem;
+  }
+
+  .admin-user-results-container {
+    padding: 1.6rem;
+  }
+
+  .admin-user-query-actions {
+    gap: 1.2rem;
+  }
+
+  .admin-user-results-heading {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .admin-user-results-th,
+  .admin-user-results-td {
+    font-size: 1.4rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .admin-user-query-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .admin-user-query-grid-5-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    column-gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-user-query-grid-5-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-user-query-field {
+    gap: 0.5rem;
+  }
+
+  .admin-user-query-input,
+  .admin-user-query-select,
+  .admin-user-query-date {
+    font-size: 1.25rem;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .admin-user-query-label {
+    font-size: 1.25rem;
+  }
+
+  .admin-user-query-container {
+    padding: 1.2rem;
+  }
+
+  .admin-user-results-container {
+    padding: 1.2rem;
+  }
+
+  .admin-user-results-th,
+  .admin-user-results-td {
+    font-size: 1.3rem;
+  }
+}

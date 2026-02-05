@@ -1,7 +1,7 @@
 import { useAdmin } from "../../context/admin/AdminContext";
 import { useAuth } from "../../context/auth/useAuth";
 
-export default function AdminSidebar() {
+export default function AdminSidebar({ onClose }: { onClose: () => void }) {
   const { activeSection, setActiveSection } = useAdmin();
   const { logout } = useAuth();
 
@@ -15,7 +15,10 @@ export default function AdminSidebar() {
       <ul className="admin-sidebar-menu">
         <li
           className={itemClass("USERS")}
-          onClick={() => setActiveSection("USERS")}
+          onClick={() => {
+            setActiveSection("USERS");
+            onClose();
+          }}
         >
           <span className="material-symbols-outlined admin-sidebar-icon">
             people
@@ -25,7 +28,10 @@ export default function AdminSidebar() {
 
         <li
           className={itemClass("COMPANIES")}
-          onClick={() => setActiveSection("COMPANIES")}
+          onClick={() => {
+            setActiveSection("COMPANIES");
+            onClose();
+          }}
         >
           <span className="material-symbols-outlined admin-sidebar-icon">
             business
@@ -33,19 +39,12 @@ export default function AdminSidebar() {
           <span className="admin-sidebar-text">Companies</span>
         </li>
 
-        {/* <li
-          className={itemClass("JOBS")}
-          onClick={() => setActiveSection("JOBS")}
-        >
-          <span className="material-symbols-outlined admin-sidebar-icon">
-            work
-          </span>
-          <span className="admin-sidebar-text">Jobs</span>
-        </li> */}
-
         <li
           className={itemClass("APPLICATIONS")}
-          onClick={() => setActiveSection("APPLICATIONS")}
+          onClick={() => {
+            setActiveSection("APPLICATIONS");
+            onClose();
+          }}
         >
           <span className="material-symbols-outlined admin-sidebar-icon">
             description
@@ -55,7 +54,13 @@ export default function AdminSidebar() {
       </ul>
 
       <div className="admin-sidebar-logout">
-        <button className="admin-sidebar-logout-btn" onClick={logout}>
+        <button
+          className="admin-sidebar-logout-btn"
+          onClick={() => {
+            logout();
+            onClose();
+          }}
+        >
           <span className="material-symbols-outlined admin-sidebar-icon">
             logout
           </span>

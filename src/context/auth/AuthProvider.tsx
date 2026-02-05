@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import type { User, JobSeeker, Company, CompanyUser } from "./AuthContext";
+import { connectSocket, disconnectSocket } from "../../socket";
+import { getSocket } from "../../socket";
+import { toast } from "react-toastify";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUserState] = useState<User | null>(null);
@@ -38,6 +41,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const logout = () => {
+    disconnectSocket();
+
     setUserState(null);
     setJobSeekerState(null);
     setCompanyState(null);
@@ -67,6 +72,45 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      connectSocket();
+    } else {
+      disconnectSocket();
+    }
+
+    return () => {
+      disconnectSocket();
+    };
+  }, [user]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const socket = getSocket();
+    if (!socket) return;
+
+    const onNotification = (data: any) => {
+      console.log("🔔 Notification received:", data);
+      toast.info(data.message);
+    };
+
+    socket.on("notification", onNotification);
+
+    return () => {
+      socket.off("notification", onNotification);
+    };
+  }, [user]);
+
+  console.log("🔥 AuthProvider rendered");
+  useEffect(() => {
+    console.log("👤 user state changed:", user);
+  }, [user]);
+
+  useEffect(() => {
+    console.log("👤 user state changed:", user);
+  }, [user]);
 
   if (loading) return <div>Loading...</div>;
 

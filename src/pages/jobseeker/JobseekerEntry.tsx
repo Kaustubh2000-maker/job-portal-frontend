@@ -29,5 +29,9 @@ export default function JobseekerEntry() {
     checkJobseekerProfile();
   }, [navigate, setJobSeeker]);
 
-  return <div>Loading...</div>;
+  return (
+    <div className="loading-div">
+      <p className="loading-text"> Loading please wait...</p>
+    </div>
+  );
 }

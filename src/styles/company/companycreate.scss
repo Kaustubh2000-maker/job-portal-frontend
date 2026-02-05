@@ -70,3 +70,83 @@
 .js-company-create-back-btn:hover {
   color: $color-primary;
 }
+
+@media (max-width: 1200px) {
+  .js-company-create-box {
+    max-width: 100%;
+    padding: 3rem;
+  }
+
+  .js-company-create-title {
+    font-size: 2.8rem;
+    margin-bottom: 3.6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .js-company-create-grid {
+    gap: 3rem;
+  }
+
+  .js-company-create-title {
+    font-size: 2.6rem;
+  }
+
+  .js-company-create-label {
+    font-size: 1.5rem;
+  }
+
+  .js-company-create-input {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .js-company-create-box {
+    padding: 2.4rem 2rem;
+  }
+
+  .js-company-create-grid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .js-company-create-title {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .js-company-create--btn {
+    width: 100%;
+    margin-left: 0;
+    justify-self: stretch;
+  }
+
+  .js-company-create-back-btn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-company-create-title {
+    font-size: 2.2rem;
+  }
+
+  .js-company-create-label {
+    font-size: 1.4rem;
+  }
+
+  .js-company-create-input {
+    font-size: 1.4rem;
+    padding: 0.9rem;
+  }
+
+  .js-company-create--btn {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .js-company-create-back-btn {
+    font-size: 1.4rem;
+  }
+}

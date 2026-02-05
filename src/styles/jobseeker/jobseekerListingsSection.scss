@@ -29,11 +29,13 @@
   font-size: 2.4rem;
   @include gradient-text;
   margin-bottom: 1.6rem;
+  text-transform: capitalize;
 }
 
 .js-listings-job-card-Locaion {
   font-size: 1.6rem;
   margin-bottom: 2.4rem;
+  text-transform: capitalize;
 }
 
 .js-listings-job-card-describtion {
@@ -49,4 +51,62 @@
   font-weight: 700;
   border: $border-white;
   border-radius: $border-radius-primary;
+}
+
+@media (max-width: 1200px) {
+  .js-listings-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .js-listings-heading {
+    font-size: 3rem;
+  }
+
+  .js-listings-job-card {
+    padding: 3rem 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .js-listings-card-grid {
+    grid-template-columns: 1fr;
+    max-width: 60rem;
+    margin-bottom: 6rem;
+  }
+
+  .js-listings-heading {
+    font-size: 2.6rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .js-listings-job-card-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .js-listings-card-grid {
+    padding: 0 1.6rem;
+  }
+
+  .js-listings-job-card {
+    padding: 2.4rem 2rem;
+  }
+
+  .js-listings-job-card-title {
+    font-size: 2rem;
+  }
+
+  .js-listings-job-card-describtion {
+    font-size: 1.3rem;
+  }
+
+  .js-listings-job-card-button {
+    width: 100%;
+    text-align: center;
+  }
 }

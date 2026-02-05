@@ -16,7 +16,6 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* PUBLIC ROUTE */}
           <Route
             path="/"
             element={
@@ -26,7 +25,6 @@ function App() {
             }
           />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-          {/* JOBSEEKER ENTRY */}
           <Route
             path="/jobseeker/*"
             element={

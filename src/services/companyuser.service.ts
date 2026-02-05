@@ -7,10 +7,6 @@ export const companyUserService = {
   getPendingCompanyUsers,
 };
 
-/* ===============================
-   APPLY TO COMPANY (HR REQUEST)
-   POST {{base_url}}/company-users/apply
-================================ */
 interface ApplyCompanyPayload {
   user: string;
   company: string;

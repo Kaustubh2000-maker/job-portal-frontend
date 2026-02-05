@@ -77,7 +77,6 @@ export default function Jobs() {
     }
   }, [jobs, selectedJobId]);
 
-  /* ================= APPLY NOW ================= */
   const handleApplyNow = async () => {
     if (!selectedJob || !jobSeekerId) {
       toast.error("Jobseeker profile not loaded");
@@ -101,7 +100,6 @@ export default function Jobs() {
     }
   };
 
-  /* ========== APPLY WITH NEW RESUME (AUTO APPLY) ========== */
   const handleResumeSelected = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -138,7 +136,6 @@ export default function Jobs() {
   return (
     <div className="js-jobs-page">
       <div className="js-jobs-container">
-        {/* LEFT: JOB LIST */}
         <div className="js-jobs-flex">
           {jobs.map((job, index) => (
             <motion.div
@@ -156,7 +153,6 @@ export default function Jobs() {
           ))}
         </div>
 
-        {/* RIGHT: JOB DETAILS */}
         <motion.div className="js-job-detail-div " {...nrmlVisible(0.2)}>
           {selectedJob ? (
             <>
@@ -203,7 +199,6 @@ export default function Jobs() {
                 </p>
               </div>
 
-              {/* ================= APPLY SECTION ================= */}
               <div className="js-job-detail-apply-div">
                 <h3 className="js-job-detail-apply-title">
                   Apply for this job

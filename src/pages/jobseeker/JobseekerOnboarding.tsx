@@ -24,23 +24,17 @@ export default function JobseekerOnboarding() {
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
   const [resume, setResume] = useState<File | null>(null);
 
-  /* ---------- education ---------- */
-
   const addEducation = () =>
     setEducation([...education, { degree: "", institution: "" }]);
 
   const removeEducation = (index: number) =>
     setEducation(education.filter((_, i) => i !== index));
 
-  /* ---------- experience ---------- */
-
   const addExperience = () =>
     setWorkExperience([...workExperience, { companyName: "", role: "" }]);
 
   const removeExperience = (index: number) =>
     setWorkExperience(workExperience.filter((_, i) => i !== index));
-
-  /* ---------- submit ---------- */
 
   const handleSubmit = async () => {
     try {
@@ -67,7 +61,6 @@ export default function JobseekerOnboarding() {
 
       // await api.post("/jobseekers", formData);
 
-      // 🔥 FETCH PROFILE AFTER CREATION
       const res = await api.get("/jobseekers/me");
       setJobSeeker(res.data.data.jobseeker);
 
@@ -82,16 +75,12 @@ export default function JobseekerOnboarding() {
     }
   };
 
-  /* ---------- UI ---------- */
-
   return (
     <div className="jbo-page">
       <div className="jbo-container">
         <h2 className="jbo-heading">Complete Your Profile</h2>
 
         <div className="jbo-grid jbo-grid-3-col">
-          {/* Gender */}
-
           <div className="jbo-radio-group">
             <label className="jbo-radio-group-label">Gender : </label>
             <div className="jbo-radio-group-inner-div">
@@ -119,7 +108,6 @@ export default function JobseekerOnboarding() {
             </div>
           </div>
 
-          {/* Status */}
           <div className="jbo-radio-group">
             <label className="jbo-radio-group-label">Status : </label>
             <div className="jbo-radio-group-inner-div">
@@ -146,7 +134,6 @@ export default function JobseekerOnboarding() {
               </label>
             </div>
           </div>
-          {/* DOB */}
           <div className="jbo-date-group">
             <label className="jbo-date-label">Date of Birth : </label>
             <input
@@ -158,7 +145,6 @@ export default function JobseekerOnboarding() {
           </div>
         </div>
 
-        {/* Skills */}
         <div className="jbo-skill-div">
           <label className="jbo-label">Skills : </label>
           <input
@@ -170,7 +156,6 @@ export default function JobseekerOnboarding() {
           />
         </div>
 
-        {/* Education */}
         <div className="jbo-obj-data-div">
           <h4 className="jbo-obj-data-heading">Education</h4>
           {education.map((edu, i) => (
@@ -216,8 +201,6 @@ export default function JobseekerOnboarding() {
             + Add Education
           </button>
         </div>
-
-        {/* Experience (ONLY IF EXPERIENCED) */}
 
         {status === "Experienced" && (
           <div className="jbo-obj-data-div">
@@ -271,7 +254,6 @@ export default function JobseekerOnboarding() {
         )}
 
         <div className="jbo-file-upload-group">
-          {/* Files */}
           <div className="jbo-file-div">
             <label className="jbo-label">Profile Photo :</label>
             <input

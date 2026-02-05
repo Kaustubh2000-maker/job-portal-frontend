@@ -35,7 +35,6 @@ export default function UserInfoSection() {
     }
   };
 
-  /* ---------- reusable row ---------- */
   const renderRow = (
     rowIcon: string,
     label: string,

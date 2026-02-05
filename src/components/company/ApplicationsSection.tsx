@@ -254,7 +254,6 @@ export default function ApplicationsSection({
                   onClick={scheduleInterview}
                   disabled={scheduling}
                 >
-                  {/* Schedule Interview */}
                   {scheduling ? "Sending..." : "Schedule Interview"}
                 </button>
               </div>

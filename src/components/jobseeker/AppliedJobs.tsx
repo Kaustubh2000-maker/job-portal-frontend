@@ -27,7 +27,6 @@ export default function AppliedJobs() {
   const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ GET jobSeeker from global auth context
   const auth = useContext(AuthContext);
   const jobSeekerId = auth?.jobSeeker?._id;
 

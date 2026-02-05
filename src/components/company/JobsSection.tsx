@@ -36,9 +36,6 @@ export default function JobsSection({
     }
   }, [company, user]);
 
-  /* =========================
-     FETCH JOBS
-  ========================= */
   const fetchJobs = async () => {
     try {
       const res = await jobService.getJobsByCompany(company!._id, user!._id);
@@ -48,9 +45,6 @@ export default function JobsSection({
     }
   };
 
-  /* =========================
-     CREATE JOB
-  ========================= */
   const createJob = async () => {
     if (!title || !description || !location) {
       toast.error("Title, description and location are required");
@@ -96,9 +90,6 @@ export default function JobsSection({
     }
   };
 
-  /* =========================
-     CLOSE JOB
-  ========================= */
   const closeJob = async (jobId: string) => {
     try {
       await jobService.closeJob(jobId, user!._id);
@@ -111,7 +102,6 @@ export default function JobsSection({
 
   return (
     <div className="js-company-section js-company-jobs">
-      {/* CREATE JOB FORM */}
       <div className="company-dash-j-create">
         <div className="company-dash-j-grid company-dash-j-grid-2">
           <div className="company-dash-j-field">
@@ -213,7 +203,6 @@ export default function JobsSection({
         </button>
       </div>
 
-      {/* JOB CARDS */}
       {jobs.length === 0 && <p>No jobs created yet</p>}
 
       {jobs.map((job) => (

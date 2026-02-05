@@ -11,7 +11,6 @@ export default function SkillsSection() {
   const [newSkill, setNewSkill] = useState("");
   const [saving, setSaving] = useState(false);
 
-  /* ---------- ADD + AUTO SAVE ---------- */
   const addSkill = async () => {
     const skill = newSkill.trim();
     if (!skill || skills.includes(skill)) return;
@@ -33,7 +32,6 @@ export default function SkillsSection() {
     }
   };
 
-  /* ---------- REMOVE + AUTO SAVE ---------- */
   const removeSkill = async (index: number) => {
     const updatedSkills = skills.filter((_, i) => i !== index);
     setSkills(updatedSkills);
@@ -54,7 +52,6 @@ export default function SkillsSection() {
     <section className="js-profile-section js-profile-skills">
       <h3 className="js-profile-skills-title">Skills</h3>
 
-      {/* ADD SKILL */}
       <div className="js-profile-skills-input-row">
         <input
           className="js-profile-skills-input"
@@ -74,7 +71,6 @@ export default function SkillsSection() {
         </button>
       </div>
 
-      {/* SKILLS LIST */}
       <div className="js-profile-skills-list">
         {skills.length === 0 && (
           <p className="js-profile-skills-empty">No skills added</p>

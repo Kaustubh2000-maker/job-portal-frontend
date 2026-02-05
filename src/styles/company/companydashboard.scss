@@ -439,9 +439,6 @@
   background-color: $color-primary;
 }
 
-/* =========================
-   LARGE LAPTOP FIX (<= 1280px)
-========================= */
 @media (max-width: 1280px) {
   .company-dashboard {
     padding: 3rem 2.4rem;
@@ -533,7 +530,6 @@
     font-size: 1.5rem;
   }
 
-  /* JOB CREATE FORM */
   .company-dash-j-grid-2,
   .company-dash-j-grid-3 {
     grid-template-columns: 1fr;
@@ -543,7 +539,6 @@
     width: 100%;
   }
 
-  /* JOB CARDS */
   .company-dash-j-card {
     flex-direction: column;
     align-items: flex-start;
@@ -558,7 +553,6 @@
     width: 100%;
   }
 
-  /* APPLICATIONS */
   .company-dash-a-name {
     font-size: 1.8rem;
   }
@@ -585,7 +579,6 @@
     width: 100%;
   }
 
-  /* USERS */
   .company-dash-user-card {
     flex-direction: column;
     align-items: flex-start;

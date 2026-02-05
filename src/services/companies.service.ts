@@ -53,18 +53,6 @@ async function getAllCompaniesForAdmin(params?: GetAdminCompaniesParams) {
   }
 }
 
-// async function exportCompaniesExcel(params?: GetAdminCompaniesParams) {
-//   try {
-//     const response = await api.get("/companies/admin/export", {
-//       params,
-//       responseType: "blob",
-//     });
-//     return response;
-//   } catch (error: any) {
-//     throw error?.response?.data || error;
-//   }
-// }
-
 async function exportCompaniesExcel(params?: any) {
   try {
     const response = await api.get("/companies/admin/export", {

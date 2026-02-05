@@ -19,7 +19,6 @@ export default function CompanyDashboard() {
   return (
     <div className=" company-dashboard">
       <div className="company-container">
-        {/* HEADER */}
         <div className="company-dashboard-header">
           <h2 className="company-dashboard-title">{company?.name}</h2>
           <div className="company-dashboard-meta">
@@ -33,7 +32,6 @@ export default function CompanyDashboard() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {/* {company.website} */}
                 Website
               </a>
             )}
@@ -49,7 +47,6 @@ export default function CompanyDashboard() {
           </div>
         </div>
 
-        {/* NAV */}
         <div className="company-dashboard-sec-btns">
           <button
             className={`company-dashboard-active-btn ${
@@ -81,7 +78,6 @@ export default function CompanyDashboard() {
           )}
         </div>
 
-        {/* CONTENT */}
         <div className="company-dashboard-content">
           {activeSection === "JOBS" && (
             <JobsSection

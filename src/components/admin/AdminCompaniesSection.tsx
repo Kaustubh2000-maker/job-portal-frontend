@@ -35,7 +35,6 @@ export default function AdminCompaniesSection() {
     return params;
   };
 
-  /* 🔍 Search / Load companies */
   const fetchCompanies = async () => {
     try {
       setLoading(true);

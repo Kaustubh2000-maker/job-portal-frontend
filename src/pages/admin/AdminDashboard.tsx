@@ -9,16 +9,12 @@ export default function AdminDashboard() {
   return (
     <AdminProvider>
       <div className={`admin-dashboard ${open ? "open" : ""}`}>
-        {/* OVERLAY */}
         <div className="admin-overlay" onClick={() => setOpen(false)}></div>
 
-        {/* SIDEBAR */}
         <AdminSidebar onClose={() => setOpen(false)} />
 
-        {/* MAIN */}
         <AdminMain />
 
-        {/* FLOATING TOGGLE (same as navbar hamburger) */}
         <button className="admin-toggle-btn" onClick={() => setOpen(!open)}>
           <span className="material-symbols-outlined">menu</span>
         </button>

@@ -12,7 +12,6 @@ export default function ProfilePhotoSection() {
 
   const [saving, setSaving] = useState(false);
 
-  /* ---------- upload handler ---------- */
   const handlePhotoChange = async (file: File) => {
     try {
       setSaving(true);
@@ -40,7 +39,6 @@ export default function ProfilePhotoSection() {
           className="js-profile-photo"
         />
 
-        {/* EDIT ICON */}
         <span className="js-profile-photo-edit">
           <span
             className="material-symbols-outlined"
@@ -52,9 +50,6 @@ export default function ProfilePhotoSection() {
           Change photo
         </span>
 
-        {/* <span class="material-symbols-outlined">edit</span> */}
-
-        {/* HIDDEN FILE INPUT */}
         <input
           ref={fileInputRef}
           type="file"

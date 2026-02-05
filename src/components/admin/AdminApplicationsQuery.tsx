@@ -27,7 +27,6 @@ export default function AdminApplicationsQuery({
   return (
     <div className="admin-application-query-container">
       <div className="admin-application-query-grid admin-application-query-grid-6-col">
-        {/* STATUS */}
         <div className="admin-application-query-field">
           <label className="admin-application-query-label">Status</label>
           <select
@@ -43,7 +42,6 @@ export default function AdminApplicationsQuery({
           </select>
         </div>
 
-        {/* JOB TITLE */}
         <div className="admin-application-query-field">
           <label className="admin-application-query-label">Job Title</label>
           <input
@@ -56,7 +54,6 @@ export default function AdminApplicationsQuery({
           />
         </div>
 
-        {/* COMPANY NAME */}
         <div className="admin-application-query-field">
           <label className="admin-application-query-label">Company</label>
           <input
@@ -69,7 +66,6 @@ export default function AdminApplicationsQuery({
           />
         </div>
 
-        {/* CANDIDATE */}
         <div className="admin-application-query-field">
           <label className="admin-application-query-label">Candidate</label>
           <input
@@ -82,7 +78,6 @@ export default function AdminApplicationsQuery({
           />
         </div>
 
-        {/* APPLIED FROM */}
         <div className="admin-application-query-field">
           <label className="admin-application-query-label">Applied From</label>
           <input
@@ -94,7 +89,6 @@ export default function AdminApplicationsQuery({
           />
         </div>
 
-        {/* APPLIED TO */}
         <div className="admin-application-query-field">
           <label className="admin-application-query-label">Applied To</label>
           <input

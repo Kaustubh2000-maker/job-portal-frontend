@@ -24,7 +24,6 @@ export default function AdminUsersSection() {
   const [users, setUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  /* 🔹 Handle filter input change */
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -32,7 +31,6 @@ export default function AdminUsersSection() {
     setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
-  /* 🔹 Build clean query params (same for search & export) */
   const buildQueryParams = () => {
     const params: any = {};
 
@@ -45,7 +43,6 @@ export default function AdminUsersSection() {
     return params;
   };
 
-  /* 🔹 Fetch users (Search button) */
   const fetchUsers = async () => {
     try {
       setLoading(true);
@@ -66,7 +63,6 @@ export default function AdminUsersSection() {
     }
   };
 
-  /* 🔹 Download Excel (same filters as table) */
   const downloadExcel = async () => {
     try {
       const queryParams = buildQueryParams();
@@ -93,7 +89,6 @@ export default function AdminUsersSection() {
     }
   };
 
-  /* 🔹 Initial load */
   useEffect(() => {
     fetchUsers();
   }, []);

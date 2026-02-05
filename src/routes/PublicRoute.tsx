@@ -6,7 +6,6 @@ import { useAuth } from "../context/auth/useAuth";
 const PublicRoute = ({ children }: { children: ReactElement }) => {
   const { user } = useAuth();
 
-  // ✅ If user is already logged in, redirect away from login
   if (user) {
     if (user.role === "JOBSEEKER") {
       return <Navigate to="/jobseeker" replace />;
@@ -21,7 +20,6 @@ const PublicRoute = ({ children }: { children: ReactElement }) => {
     }
   }
 
-  // ❌ Not logged in → allow login page
   return children;
 };
 

@@ -28,16 +28,13 @@ export default function CompanyProtectedRoute({
     checkAccess();
   }, []);
 
-  // ⏳ No blink
   if (allowed === null) {
     return <div>Checking access...</div>;
   }
 
-  // ❌ Block access
   if (!allowed) {
     return <Navigate to="/company" replace />;
   }
 
-  // ✅ Allow
   return <>{children}</>;
 }

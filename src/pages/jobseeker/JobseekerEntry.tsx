@@ -13,7 +13,6 @@ export default function JobseekerEntry() {
       try {
         const res = await api.get("/jobseekers/me");
 
-        // ✅ backend sends `jobseeker` (lowercase)
         setJobSeeker(res.data.data.jobseeker);
 
         navigate("/jobseeker/dashboard", { replace: true });

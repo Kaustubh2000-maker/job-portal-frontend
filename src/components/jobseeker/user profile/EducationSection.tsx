@@ -22,8 +22,6 @@ export default function EducationSection() {
 
   const [saving, setSaving] = useState(false);
 
-  /* ---------- handlers ---------- */
-
   const addEducation = () => {
     setEducation([...education, { degree: "", institution: "" }]);
   };
@@ -47,8 +45,6 @@ export default function EducationSection() {
       setSaving(false);
     }
   };
-
-  /* ---------- UI ---------- */
 
   return (
     <section className="js-profile-section js-profile-edu-section">

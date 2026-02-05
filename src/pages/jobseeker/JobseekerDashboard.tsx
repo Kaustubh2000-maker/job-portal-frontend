@@ -13,10 +13,8 @@ import UserProfile from "../../components/jobseeker/UserProfile";
 export default function JobseekerDashboard() {
   return (
     <div className="jobseeker-dashboard">
-      {/* NAVBAR */}
       <JobseekerNavbar />
 
-      {/* MIDDLE CONTENT */}
       <main className="jobseeker-content">
         <Routes>
           <Route index element={<Home />} />
@@ -25,12 +23,10 @@ export default function JobseekerDashboard() {
           <Route path="applied" element={<AppliedJobs />} />
           <Route path="profile" element={<UserProfile />} />
 
-          {/* fallback */}
           <Route path="*" element={<Navigate to="" replace />} />
         </Routes>
       </main>
 
-      {/* FOOTER */}
       <Footer></Footer>
     </div>
   );

@@ -15,7 +15,6 @@ export default function CompanyEntry() {
       try {
         const res = await api.get("/company-users/check");
 
-        // ❌ User has NOT applied to any company
         if (!res.data.exists) {
           auth.setCompany(null as any);
           auth.setCompanyUser(null as any);
@@ -30,17 +29,14 @@ export default function CompanyEntry() {
           company: res.data.data.company,
         };
 
-        // ✅ SAVE TO AUTH CONTEXT
         auth.setCompany(res.data.data.company);
         auth.setCompanyUser(companyUser);
 
-        // ✅ Approved → Dashboard
         if (companyUser.status === "APPROVED") {
           navigate("/company/dashboard", { replace: true });
           return;
         }
 
-        // ⏳ Pending / ❌ Rejected → Select page
         navigate("/company/select", { replace: true });
       } catch (error: any) {
         toast.error("Failed to verify company access");

@@ -1,12 +1,10 @@
 import axios from "axios";
 
-// ✅ Base URL (change once, app-wide)
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  withCredentials: true, // ✅ IMPORTANT (cookies / auth)
+  withCredentials: true,
 });
 
-// ✅ Attach token automatically for every request
 api.interceptors.request.use(
   (config) => {
     const token = document.cookie

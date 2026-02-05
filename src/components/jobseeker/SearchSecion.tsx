@@ -96,7 +96,6 @@ export default function SearchSection() {
         </motion.div>
       </div>
 
-      {/* ================= RESULTS ================= */}
       {query.trim().length >= 2 && (
         <div className="js-search-results">
           {loading && <p className="js-search-searching">Searching...</p>}
@@ -109,7 +108,6 @@ export default function SearchSection() {
 
           {showResults && (
             <div className="js-search-grid">
-              {/* JOBS COLUMN */}
               {results.jobs.length > 0 && (
                 <div className="js-search-col">
                   <h4 className="js-search-col-heading">Jobs</h4>
@@ -147,7 +145,6 @@ export default function SearchSection() {
                 </div>
               )}
 
-              {/* COMPANIES COLUMN */}
               {results.companies.length > 0 && (
                 <div className="js-search-col">
                   <h4 className="js-search-col-heading">Companies</h4>

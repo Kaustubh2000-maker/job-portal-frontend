@@ -10,7 +10,7 @@ import AdminRoutes from "./routes/AdminRoutes";
 
 import CompanyRoutes from "./routes/CompanyRoutes";
 import ResetPassword from "./pages/login/ResetPassword";
-
+//
 function App() {
   return (
     <AuthProvider>

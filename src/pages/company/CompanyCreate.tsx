@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { companiesService } from "../../services/companies.service";
 import { AuthContext } from "../../context/auth/AuthContext";
 import { toast } from "react-toastify";
+import api from "../../services/api";
 
 export default function CompanyCreate() {
   const navigate = useNavigate();
@@ -16,6 +17,34 @@ export default function CompanyCreate() {
   const [location, setLocation] = useState("");
   const [saving, setSaving] = useState(false);
 
+  // const handleCreateCompany = async () => {
+  //   if (!name || !industry || !location) {
+  //     toast.error("Please fill required fields");
+  //     return;
+  //   }
+
+  //   try {
+  //     setSaving(true);
+
+  //     await companiesService.createCompany({
+  //       name,
+  //       industry,
+  //       website,
+  //       description,
+  //       location,
+  //       createdBy: userId,
+  //     });
+
+  //     toast.success("Company created successfully");
+  //     navigate("/company/dashboard", { replace: true });
+  //   } catch (error: any) {
+  //     console.log(error);
+
+  //     toast.error(error?.message || "Failed to create company");
+  //   } finally {
+  //     setSaving(false);
+  //   }
+  // };
   const handleCreateCompany = async () => {
     if (!name || !industry || !location) {
       toast.error("Please fill required fields");
@@ -25,6 +54,7 @@ export default function CompanyCreate() {
     try {
       setSaving(true);
 
+      // 1️⃣ Create company
       await companiesService.createCompany({
         name,
         industry,
@@ -34,12 +64,32 @@ export default function CompanyCreate() {
         createdBy: userId,
       });
 
+      // 2️⃣ Fetch company-user mapping immediately
+      const res = await api.get("/company-users/check");
+
+      if (!res.data.exists) {
+        toast.error("Company created but access not ready. Please refresh.");
+        return;
+      }
+
+      const companyUser = {
+        companyUserId: res.data.data.companyUserId,
+        role: res.data.data.role,
+        status: res.data.data.status,
+        company: res.data.data.company,
+      };
+
+      // 3️⃣ Hydrate auth context
+      auth.setCompany(res.data.data.company);
+      auth.setCompanyUser(companyUser);
+
       toast.success("Company created successfully");
+
+      // 4️⃣ Navigate
       navigate("/company/dashboard", { replace: true });
     } catch (error: any) {
-      console.log(error);
-
-      toast.error(error?.message || "Failed to create company");
+      console.error(error);
+      toast.error(error?.response?.data?.message || "Failed to create company");
     } finally {
       setSaving(false);
     }

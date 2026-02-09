@@ -104,12 +104,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, [user]);
 
   console.log("🔥 AuthProvider rendered");
-  useEffect(() => {
-    console.log("👤 user state changed:", user);
-  }, [user]);
+
+  // useEffect(() => {
+  //   // console.log("👤 user state changed:", user);
+  // }, [user]);
 
   useEffect(() => {
-    console.log("👤 user state changed:", user);
+    // console.log("👤 user state changed:", user);
   }, [user]);
 
   if (loading) return <div>Loading...</div>;

@@ -58,6 +58,8 @@ export default function Jobs() {
       const res = await jobService.getAllJobs();
       const jobsData = res?.data?.jobs || [];
       setJobs(jobsData);
+      console.log(res);
+
       // setSelectedJob(jobsData[0] || null);
     } catch (error) {
       console.error("Failed to fetch jobs", error);

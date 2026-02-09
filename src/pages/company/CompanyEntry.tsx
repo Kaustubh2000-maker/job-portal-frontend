@@ -11,9 +11,13 @@ export default function CompanyEntry() {
   useEffect(() => {
     if (!auth?.user) return;
 
+    console.log("user in entry", auth?.user);
+
     const checkCompanyAccess = async () => {
       try {
         const res = await api.get("/company-users/check");
+
+        console.log("res data entry ", res);
 
         if (!res.data.exists) {
           auth.setCompany(null as any);

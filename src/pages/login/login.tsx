@@ -49,6 +49,8 @@ export default function Login() {
       setLoading(true);
 
       const response = await loginService(loginData);
+      console.log(response);
+
       const user = response.data.user;
 
       setUser(user);
